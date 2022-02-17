@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC427BED36C00534C23 /* KestrelApp.swift */; };
-		CBDD5AC727BED36C00534C23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC627BED36C00534C23 /* ContentView.swift */; };
+		CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC627BED36C00534C23 /* GameView.swift */; };
 		CBDD5AC927BED36C00534C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDD5AC827BED36C00534C23 /* Assets.xcassets */; };
 		CBDD5ACC27BED36C00534C23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDD5ACB27BED36C00534C23 /* Preview Assets.xcassets */; };
+		CBDD5AD427BEDE2400534C23 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AD327BEDE2400534C23 /* Renderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CBDD5AC127BED36C00534C23 /* Kestrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kestrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDD5AC427BED36C00534C23 /* KestrelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KestrelApp.swift; sourceTree = "<group>"; };
-		CBDD5AC627BED36C00534C23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CBDD5AC627BED36C00534C23 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		CBDD5AC827BED36C00534C23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBDD5ACB27BED36C00534C23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CBDD5ACD27BED36C00534C23 /* Kestrel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kestrel.entitlements; sourceTree = "<group>"; };
+		CBDD5AD327BEDE2400534C23 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				CBDD5AC427BED36C00534C23 /* KestrelApp.swift */,
-				CBDD5AC627BED36C00534C23 /* ContentView.swift */,
+				CBDD5AC627BED36C00534C23 /* GameView.swift */,
+				CBDD5AD327BEDE2400534C23 /* Renderer.swift */,
 				CBDD5AC827BED36C00534C23 /* Assets.xcassets */,
 				CBDD5ACD27BED36C00534C23 /* Kestrel.entitlements */,
 				CBDD5ACA27BED36C00534C23 /* Preview Content */,
@@ -139,7 +142,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBDD5AC727BED36C00534C23 /* ContentView.swift in Sources */,
+				CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */,
+				CBDD5AD427BEDE2400534C23 /* Renderer.swift in Sources */,
 				CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
