@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB66759F27C48EB200FD0E5E /* Basic Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */; };
 		CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC427BED36C00534C23 /* KestrelApp.swift */; };
 		CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC627BED36C00534C23 /* GameView.swift */; };
 		CBDD5AC927BED36C00534C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDD5AC827BED36C00534C23 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "Basic Shaders.metal"; sourceTree = "<group>"; };
 		CBDD5AC127BED36C00534C23 /* Kestrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kestrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDD5AC427BED36C00534C23 /* KestrelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KestrelApp.swift; sourceTree = "<group>"; };
 		CBDD5AC627BED36C00534C23 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				CBDD5AC827BED36C00534C23 /* Assets.xcassets */,
 				CBDD5ACD27BED36C00534C23 /* Kestrel.entitlements */,
 				CBDD5ACA27BED36C00534C23 /* Preview Content */,
+				CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */,
 			);
 			path = Kestrel;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB66759F27C48EB200FD0E5E /* Basic Shaders.metal in Sources */,
 				CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */,
 				CBDD5AD427BEDE2400534C23 /* Renderer.swift in Sources */,
 				CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */,
