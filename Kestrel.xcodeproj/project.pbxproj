@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB66759F27C48EB200FD0E5E /* Basic Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */; };
+		CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6675A427C594DD00FD0E5E /* MetalView.swift */; };
 		CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC427BED36C00534C23 /* KestrelApp.swift */; };
 		CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC627BED36C00534C23 /* GameView.swift */; };
 		CBDD5AC927BED36C00534C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDD5AC827BED36C00534C23 /* Assets.xcassets */; };
@@ -17,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "Basic Shaders.metal"; sourceTree = "<group>"; };
+		CB6675A327C4C9B400FD0E5E /* YuzuKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = YuzuKit; path = ../YuzuKit; sourceTree = "<group>"; };
+		CB6675A427C594DD00FD0E5E /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		CBDD5AC127BED36C00534C23 /* Kestrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kestrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDD5AC427BED36C00534C23 /* KestrelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KestrelApp.swift; sourceTree = "<group>"; };
 		CBDD5AC627BED36C00534C23 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -37,9 +40,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB6675A227C4C9B400FD0E5E /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				CB6675A327C4C9B400FD0E5E /* YuzuKit */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		CBDD5AB827BED36C00534C23 = {
 			isa = PBXGroup;
 			children = (
+				CB6675A227C4C9B400FD0E5E /* Packages */,
 				CBDD5AC327BED36C00534C23 /* Kestrel */,
 				CBDD5AC227BED36C00534C23 /* Products */,
 			);
@@ -58,11 +70,12 @@
 			children = (
 				CBDD5AC427BED36C00534C23 /* KestrelApp.swift */,
 				CBDD5AC627BED36C00534C23 /* GameView.swift */,
+				CB6675A427C594DD00FD0E5E /* MetalView.swift */,
 				CBDD5AD327BEDE2400534C23 /* Renderer.swift */,
 				CBDD5AC827BED36C00534C23 /* Assets.xcassets */,
 				CBDD5ACD27BED36C00534C23 /* Kestrel.entitlements */,
-				CBDD5ACA27BED36C00534C23 /* Preview Content */,
 				CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */,
+				CBDD5ACA27BED36C00534C23 /* Preview Content */,
 			);
 			path = Kestrel;
 			sourceTree = "<group>";
@@ -147,6 +160,7 @@
 			files = (
 				CB66759F27C48EB200FD0E5E /* Basic Shaders.metal in Sources */,
 				CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */,
+				CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */,
 				CBDD5AD427BEDE2400534C23 /* Renderer.swift in Sources */,
 				CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */,
 			);

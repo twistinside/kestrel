@@ -12,10 +12,9 @@ class Renderer: NSObject, MTKViewDelegate {
     var device: MTLDevice
     var fragmentFunction: MTLFunction
     var library: MTLLibrary
-    var parent: GameView
     var vertexFunction: MTLFunction
     
-    init(_ view: GameView) {
+    init(metalView: MTKView) {
         guard let device = MTLCreateSystemDefaultDevice(),
               let commandQueue = device.makeCommandQueue(),
               let library = device.makeDefaultLibrary(),
@@ -28,9 +27,12 @@ class Renderer: NSObject, MTKViewDelegate {
         self.commandQueue = commandQueue
         self.fragmentFunction = fragmentFunction
         self.library = library
-        self.parent = view
         self.vertexFunction = vertexFunction
         super.init()
+        metalView.delegate = self
+        metalView.device = device
+        metalView.clearColor = MTLClearColor(red: 0.73, green: 0.23, blue: 0.35, alpha: 1.0)
+        mtkView(metalView, drawableSizeWillChange: metalView.bounds.size)
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
@@ -53,7 +55,7 @@ class Renderer: NSObject, MTKViewDelegate {
         
         let meshBufferAllocator = MTKMeshBufferAllocator(device: device)
         
-        let mdlMesh = MDLMesh(sphereWithExtent: [1.0, 1.0, 1.0], segments: [100, 100], inwardNormals: false, geometryType: .triangles, allocator: meshBufferAllocator)
+        let mdlMesh = MDLMesh(sphereWithExtent: [0.8, 0.8, 0.8], segments: [100, 100], inwardNormals: false, geometryType: .triangles, allocator: meshBufferAllocator)
         let mtkMesh = try! MTKMesh(mesh: mdlMesh, device: device)
         
         let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
@@ -78,5 +80,6 @@ class Renderer: NSObject, MTKViewDelegate {
         renderCommandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
         commandBuffer?.commit()
+        print("Drawing")
     }
 }

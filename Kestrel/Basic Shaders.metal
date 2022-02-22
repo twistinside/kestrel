@@ -9,13 +9,24 @@
 using namespace metal;
 
 struct VertexIn {
-    float4 position [[ attribute(0) ]];
+    float4 position [[attribute(0)]];
+    float3 normal   [[attribute(1)]];
 };
 
-vertex float4 basic_vertex(const VertexIn vertex_in [[ stage_in ]]) {
-    return vertex_in.position;
+struct VertexOut {
+    float4 position [[position]];
+    float3 color;
+};
+
+[[vertex]]
+VertexOut basic_vertex(const VertexIn vertex_in [[stage_in]]) {
+    VertexOut vertexOut;
+    vertexOut.position = vertex_in.position;
+    vertexOut.color = vertex_in.normal;
+    return vertexOut;
 }
 
-fragment float4 basic_fragment() {
-    return float4(1);
+[[fragment]]
+float4 basic_fragment(VertexOut vertex_out [[stage_in]]) {
+    return float4(vertex_out.color, 1);
 }
