@@ -1,13 +1,6 @@
-//
-//  Renderer.swift
-//  Kestrel
-//
-//  Created by Karl Groff on 2/17/22.
-//
-
 import MetalKit
 
-class Renderer: NSObject, MTKViewDelegate {
+class Renderer: NSObject {
     var commandQueue: MTLCommandQueue
     var device: MTLDevice
     var fragmentFunction: MTLFunction
@@ -29,12 +22,16 @@ class Renderer: NSObject, MTKViewDelegate {
         self.library = library
         self.vertexFunction = vertexFunction
         super.init()
+        
         metalView.delegate = self
         metalView.device = device
         metalView.clearColor = MTLClearColor(red: 0.73, green: 0.23, blue: 0.35, alpha: 1.0)
+        
         mtkView(metalView, drawableSizeWillChange: metalView.bounds.size)
     }
-    
+}
+
+extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         // Do nothing
     }
