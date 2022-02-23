@@ -16,8 +16,8 @@ class Renderer: NSObject {
             fatalError("Could not initialize render.")
         }
         
-        self.device = device
         self.commandQueue = commandQueue
+        self.device = device
         self.fragmentFunction = fragmentFunction
         self.library = library
         self.vertexFunction = vertexFunction
