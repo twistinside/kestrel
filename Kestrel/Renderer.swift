@@ -77,6 +77,5 @@ extension Renderer: MTKViewDelegate {
         renderCommandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
         commandBuffer?.commit()
-        print("Drawing")
     }
 }
