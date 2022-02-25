@@ -7,6 +7,9 @@ class Renderer: NSObject {
     var library: MTLLibrary
     var vertexFunction: MTLFunction
     
+    let cube = KestrelCube()
+    let sphere = KestrelSphere()
+    
     init(metalView: MTKView) {
         guard let device = MTLCreateSystemDefaultDevice(),
               let commandQueue = device.makeCommandQueue(),
@@ -68,11 +71,15 @@ extension Renderer: MTKViewDelegate {
         
         renderCommandEncoder?.setVertexBuffer(mtkMesh.vertexBuffers[0].buffer, offset: 0, index: 0)
         
+        /*
         guard let submesh = mtkMesh.submeshes.first else {
             fatalError()
         }
         
         renderCommandEncoder?.drawIndexedPrimitives(type: .triangle, indexCount: submesh.indexCount, indexType: submesh.indexType, indexBuffer: submesh.indexBuffer.buffer, indexBufferOffset: 0)
+         */
+        sphere.update(deltaTime: 0.01)
+        sphere.render(renderCommandEncoder: renderCommandEncoder!)
         
         renderCommandEncoder?.endEncoding()
         commandBuffer?.present(drawable)

@@ -5,6 +5,7 @@
 //  Created by Karl Groff on 2/21/22.
 //
 
+#import <simd/simd.h>
 #include <metal_stdlib>
 using namespace metal;
 
@@ -19,9 +20,10 @@ struct VertexOut {
 };
 
 [[vertex]]
-VertexOut basic_vertex(const VertexIn vertex_in [[stage_in]]) {
+VertexOut basic_vertex(const VertexIn vertex_in [[stage_in]],
+                       constant matrix_float4x4 & modelMatrix [[buffer(1)]]) {
     VertexOut vertexOut;
-    vertexOut.position = vertex_in.position;
+    vertexOut.position = modelMatrix * vertex_in.position;
     vertexOut.color = vertex_in.normal;
     return vertexOut;
 }

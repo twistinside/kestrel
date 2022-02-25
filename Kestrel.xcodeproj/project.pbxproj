@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		CB66759F27C48EB200FD0E5E /* Basic Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */; };
 		CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6675A427C594DD00FD0E5E /* MetalView.swift */; };
+		CB6675A927C6B9B900FD0E5E /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6675A827C6B9B900FD0E5E /* Entity.swift */; };
+		CB6675AF27C6C5F400FD0E5E /* Translatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6675AE27C6C5F400FD0E5E /* Translatable.swift */; };
+		CB6675B227C6C80700FD0E5E /* Rotatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6675B127C6C80700FD0E5E /* Rotatable.swift */; };
+		CB81ACA027C814830019FA2B /* Scalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB81AC9F27C814830019FA2B /* Scalable.swift */; };
+		CB81ACA427C816060019FA2B /* Transformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB81ACA327C816060019FA2B /* Transformable.swift */; };
+		CB81ACA827C81C550019FA2B /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB81ACA727C81C550019FA2B /* Renderable.swift */; };
+		CBA38A4C27C81E1700DDBC82 /* YuzuKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBA38A4B27C81E1700DDBC82 /* YuzuKit */; };
+		CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBB27C840E8000EDF85 /* Sphere.swift */; };
+		CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBD27C84476000EDF85 /* Cube.swift */; };
 		CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC427BED36C00534C23 /* KestrelApp.swift */; };
 		CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC627BED36C00534C23 /* GameView.swift */; };
 		CBDD5AC927BED36C00534C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDD5AC827BED36C00534C23 /* Assets.xcassets */; };
@@ -20,6 +29,15 @@
 		CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "Basic Shaders.metal"; sourceTree = "<group>"; };
 		CB6675A327C4C9B400FD0E5E /* YuzuKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = YuzuKit; path = ../YuzuKit; sourceTree = "<group>"; };
 		CB6675A427C594DD00FD0E5E /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		CB6675A627C6B7FA00FD0E5E /* KestrelCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KestrelCommon.h; sourceTree = "<group>"; };
+		CB6675A827C6B9B900FD0E5E /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		CB6675AE27C6C5F400FD0E5E /* Translatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translatable.swift; sourceTree = "<group>"; };
+		CB6675B127C6C80700FD0E5E /* Rotatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotatable.swift; sourceTree = "<group>"; };
+		CB81AC9F27C814830019FA2B /* Scalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scalable.swift; sourceTree = "<group>"; };
+		CB81ACA327C816060019FA2B /* Transformable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformable.swift; sourceTree = "<group>"; };
+		CB81ACA727C81C550019FA2B /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		CBC59CBB27C840E8000EDF85 /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		CBC59CBD27C84476000EDF85 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		CBDD5AC127BED36C00534C23 /* Kestrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kestrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDD5AC427BED36C00534C23 /* KestrelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KestrelApp.swift; sourceTree = "<group>"; };
 		CBDD5AC627BED36C00534C23 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -34,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA38A4C27C81E1700DDBC82 /* YuzuKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,12 +67,50 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
+		CB6675A727C6B81500FD0E5E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CB6675A827C6B9B900FD0E5E /* Entity.swift */,
+				CBC59CBA27C840D3000EDF85 /* Shapes */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CB6675AA27C6B9FC00FD0E5E /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				CB81ACA727C81C550019FA2B /* Renderable.swift */,
+				CB81ACA327C816060019FA2B /* Transformable.swift */,
+				CB6675AE27C6C5F400FD0E5E /* Translatable.swift */,
+				CB6675B127C6C80700FD0E5E /* Rotatable.swift */,
+				CB81AC9F27C814830019FA2B /* Scalable.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		CBA38A4A27C81E1700DDBC82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBC59CBA27C840D3000EDF85 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				CBC59CBB27C840E8000EDF85 /* Sphere.swift */,
+				CBC59CBD27C84476000EDF85 /* Cube.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		CBDD5AB827BED36C00534C23 = {
 			isa = PBXGroup;
 			children = (
 				CB6675A227C4C9B400FD0E5E /* Packages */,
 				CBDD5AC327BED36C00534C23 /* Kestrel */,
 				CBDD5AC227BED36C00534C23 /* Products */,
+				CBA38A4A27C81E1700DDBC82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +125,8 @@
 		CBDD5AC327BED36C00534C23 /* Kestrel */ = {
 			isa = PBXGroup;
 			children = (
+				CB6675A727C6B81500FD0E5E /* Entity */,
+				CB6675AA27C6B9FC00FD0E5E /* Component */,
 				CBDD5AC427BED36C00534C23 /* KestrelApp.swift */,
 				CBDD5AC627BED36C00534C23 /* GameView.swift */,
 				CB6675A427C594DD00FD0E5E /* MetalView.swift */,
@@ -76,6 +135,7 @@
 				CBDD5ACD27BED36C00534C23 /* Kestrel.entitlements */,
 				CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */,
 				CBDD5ACA27BED36C00534C23 /* Preview Content */,
+				CB6675A627C6B7FA00FD0E5E /* KestrelCommon.h */,
 			);
 			path = Kestrel;
 			sourceTree = "<group>";
@@ -104,6 +164,9 @@
 			dependencies = (
 			);
 			name = Kestrel;
+			packageProductDependencies = (
+				CBA38A4B27C81E1700DDBC82 /* YuzuKit */,
+			);
 			productName = Kestrel;
 			productReference = CBDD5AC127BED36C00534C23 /* Kestrel.app */;
 			productType = "com.apple.product-type.application";
@@ -158,10 +221,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB81ACA427C816060019FA2B /* Transformable.swift in Sources */,
 				CB66759F27C48EB200FD0E5E /* Basic Shaders.metal in Sources */,
+				CB6675AF27C6C5F400FD0E5E /* Translatable.swift in Sources */,
 				CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */,
+				CB6675B227C6C80700FD0E5E /* Rotatable.swift in Sources */,
+				CB6675A927C6B9B900FD0E5E /* Entity.swift in Sources */,
 				CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */,
+				CB81ACA827C81C550019FA2B /* Renderable.swift in Sources */,
 				CBDD5AD427BEDE2400534C23 /* Renderer.swift in Sources */,
+				CB81ACA027C814830019FA2B /* Scalable.swift in Sources */,
+				CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */,
+				CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */,
 				CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +358,7 @@
 		CBDD5AD127BED36C00534C23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Kestrel/Kestrel.entitlements;
@@ -314,6 +386,7 @@
 		CBDD5AD227BED36C00534C23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Kestrel/Kestrel.entitlements;
@@ -360,6 +433,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CBA38A4B27C81E1700DDBC82 /* YuzuKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = YuzuKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CBDD5AB927BED36C00534C23 /* Project object */;
 }
