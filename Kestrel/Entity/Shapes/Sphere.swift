@@ -20,6 +20,6 @@ class KestrelSphere: Entity, Renderable, Transformable {
     }
     
     override func update(deltaTime: Float) {
-        self.rotate(by: SIMD3<Float>(deltaTime, 0.0, 0.0))
+        self.rotate(by: SIMD3<Float>(deltaTime, deltaTime/2, deltaTime/3))
     }
 }
