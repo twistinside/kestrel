@@ -16,6 +16,9 @@
 		CB81ACA427C816060019FA2B /* Transformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB81ACA327C816060019FA2B /* Transformable.swift */; };
 		CB81ACA827C81C550019FA2B /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB81ACA727C81C550019FA2B /* Renderable.swift */; };
 		CBA38A4C27C81E1700DDBC82 /* YuzuKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBA38A4B27C81E1700DDBC82 /* YuzuKit */; };
+		CBA9D63B27C9DDB8006EDA6E /* Standard Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D63A27C9DDB8006EDA6E /* Standard Camera.swift */; };
+		CBA9D63E27C9DE37006EDA6E /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D63D27C9DE37006EDA6E /* Camera.swift */; };
+		CBA9D64027C9F1FF006EDA6E /* Service Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D63F27C9F1FF006EDA6E /* Service Locator.swift */; };
 		CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBB27C840E8000EDF85 /* Sphere.swift */; };
 		CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBD27C84476000EDF85 /* Cube.swift */; };
 		CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC427BED36C00534C23 /* KestrelApp.swift */; };
@@ -35,6 +38,9 @@
 		CB81AC9F27C814830019FA2B /* Scalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scalable.swift; sourceTree = "<group>"; };
 		CB81ACA327C816060019FA2B /* Transformable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformable.swift; sourceTree = "<group>"; };
 		CB81ACA727C81C550019FA2B /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		CBA9D63A27C9DDB8006EDA6E /* Standard Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Standard Camera.swift"; sourceTree = "<group>"; };
+		CBA9D63D27C9DE37006EDA6E /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		CBA9D63F27C9F1FF006EDA6E /* Service Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Locator.swift"; sourceTree = "<group>"; };
 		CBC59CBB27C840E8000EDF85 /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
 		CBC59CBD27C84476000EDF85 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		CBDD5AC127BED36C00534C23 /* Kestrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kestrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				CB6675A827C6B9B900FD0E5E /* Entity.swift */,
+				CBA9D63C27C9DDCB006EDA6E /* Cameras */,
 				CBC59CBA27C840D3000EDF85 /* Shapes */,
 			);
 			path = Entity;
@@ -77,11 +84,12 @@
 		CB6675AA27C6B9FC00FD0E5E /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				CBA9D63D27C9DE37006EDA6E /* Camera.swift */,
 				CB81ACA727C81C550019FA2B /* Renderable.swift */,
-				CB81ACA327C816060019FA2B /* Transformable.swift */,
-				CB6675AE27C6C5F400FD0E5E /* Translatable.swift */,
 				CB6675B127C6C80700FD0E5E /* Rotatable.swift */,
 				CB81AC9F27C814830019FA2B /* Scalable.swift */,
+				CB81ACA327C816060019FA2B /* Transformable.swift */,
+				CB6675AE27C6C5F400FD0E5E /* Translatable.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -91,6 +99,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBA9D63C27C9DDCB006EDA6E /* Cameras */ = {
+			isa = PBXGroup;
+			children = (
+				CBA9D63A27C9DDB8006EDA6E /* Standard Camera.swift */,
+			);
+			path = Cameras;
 			sourceTree = "<group>";
 		};
 		CBC59CBA27C840D3000EDF85 /* Shapes */ = {
@@ -141,6 +157,7 @@
 		CBC59CC327C99085000EDF85 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CBA9D63F27C9F1FF006EDA6E /* Service Locator.swift */,
 				CBC59CC427C991DF000EDF85 /* Renderer */,
 			);
 			path = Services;
@@ -186,8 +203,8 @@
 			children = (
 				CBC59CC027C98FB0000EDF85 /* Application */,
 				CBC59CBF27C98FA6000EDF85 /* Assets */,
-				CB6675AA27C6B9FC00FD0E5E /* Component */,
 				CB6675A727C6B81500FD0E5E /* Entity */,
+				CB6675AA27C6B9FC00FD0E5E /* Component */,
 				CBC59CC327C99085000EDF85 /* Services */,
 			);
 			path = Kestrel;
@@ -270,13 +287,16 @@
 				CB6675AF27C6C5F400FD0E5E /* Translatable.swift in Sources */,
 				CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */,
 				CB6675B227C6C80700FD0E5E /* Rotatable.swift in Sources */,
+				CBA9D64027C9F1FF006EDA6E /* Service Locator.swift in Sources */,
 				CB6675A927C6B9B900FD0E5E /* Entity.swift in Sources */,
 				CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */,
 				CB81ACA827C81C550019FA2B /* Renderable.swift in Sources */,
 				CBDD5AD427BEDE2400534C23 /* Renderer.swift in Sources */,
 				CB81ACA027C814830019FA2B /* Scalable.swift in Sources */,
 				CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */,
+				CBA9D63E27C9DE37006EDA6E /* Camera.swift in Sources */,
 				CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */,
+				CBA9D63B27C9DDB8006EDA6E /* Standard Camera.swift in Sources */,
 				CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.kestrel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = Kestrel/Application/Common.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -451,6 +472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.kestrel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = Kestrel/Application/Common.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
