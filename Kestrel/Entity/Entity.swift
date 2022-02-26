@@ -12,3 +12,9 @@ class Entity {
         // do nothing in this base class
     }
 }
+
+extension Array where Element: Entity {
+    func update(deltaTime: Float) {
+        self.forEach{ $0.update(deltaTime: deltaTime) }
+    }
+}

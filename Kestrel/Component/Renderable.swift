@@ -30,3 +30,8 @@ extension Renderable {
     }
 }
 
+extension Array where Element: Renderable {
+    func render(renderCommandEncoder: MTLRenderCommandEncoder) {
+        self.forEach{ $0.render(renderCommandEncoder: renderCommandEncoder) }
+    }
+}
