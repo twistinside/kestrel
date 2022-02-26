@@ -5,12 +5,14 @@ class Renderer: NSObject {
     var device: MTLDevice
     var fragmentFunction: MTLFunction
     var library: MTLLibrary
+    var uniforms: Uniforms
     var vertexFunction: MTLFunction
     
+    let camera = StandardCamera()
     let cube = KestrelCube()
     let sphere = KestrelSphere()
     
-    init(metalView: MTKView) {
+    override init() {
         guard let device = MTLCreateSystemDefaultDevice(),
               let commandQueue = device.makeCommandQueue(),
               let library = device.makeDefaultLibrary(),
@@ -23,14 +25,9 @@ class Renderer: NSObject {
         self.device = device
         self.fragmentFunction = fragmentFunction
         self.library = library
+        self.uniforms = Uniforms()
         self.vertexFunction = vertexFunction
         super.init()
-        
-        metalView.delegate = self
-        metalView.device = device
-        metalView.clearColor = MTLClearColor(red: 0.73, green: 0.23, blue: 0.35, alpha: 1.0)
-        
-        mtkView(metalView, drawableSizeWillChange: metalView.bounds.size)
     }
 }
 
@@ -43,6 +40,11 @@ extension Renderer: MTKViewDelegate {
         guard let drawable = view.currentDrawable else {
             return
         }
+        
+        sphere.update(deltaTime: 0.01)
+        
+        uniforms.projectionMatrix = camera.projectionMatrix
+        uniforms.viewMatrix = camera.viewMatrix
         
         let commandBuffer = commandQueue.makeCommandBuffer()
         let renderPassDescriptor = view.currentRenderPassDescriptor
@@ -69,16 +71,9 @@ extension Renderer: MTKViewDelegate {
         
         renderCommandEncoder?.setRenderPipelineState(renderPipelineState)
         
+        renderCommandEncoder?.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 0)
         renderCommandEncoder?.setVertexBuffer(mtkMesh.vertexBuffers[0].buffer, offset: 0, index: 0)
         
-        /*
-        guard let submesh = mtkMesh.submeshes.first else {
-            fatalError()
-        }
-        
-        renderCommandEncoder?.drawIndexedPrimitives(type: .triangle, indexCount: submesh.indexCount, indexType: submesh.indexType, indexBuffer: submesh.indexBuffer.buffer, indexBufferOffset: 0)
-         */
-        sphere.update(deltaTime: 0.01)
         sphere.render(renderCommandEncoder: renderCommandEncoder!)
         
         renderCommandEncoder?.endEncoding()
