@@ -6,7 +6,7 @@ protocol Renderable: Entity {
     var position: SIMD3<Float> { get }
     var rotation: SIMD3<Float> { get }
     var scale: SIMD3<Float> { get }
-    
+
     func render(renderCommandEncoder: MTLRenderCommandEncoder)
 }
 
@@ -14,8 +14,10 @@ extension Renderable {
     func render(renderCommandEncoder: MTLRenderCommandEncoder) {
         for mesh in meshes {
             for vertexBuffer in mesh.vertexBuffers {
-                var modelMatrix = YZKModel.matrix(position: position, rotation: rotation, scale: scale)
-                renderCommandEncoder.setVertexBytes(&modelMatrix, length: MemoryLayout<matrix_float4x4>.stride, index: 1)
+                var modelMatrix = YZKModelMatrix.from(position: position, rotation: rotation, scale: scale)
+                renderCommandEncoder.setVertexBytes(&modelMatrix,
+                                                    length: MemoryLayout<matrix_float4x4>.stride,
+                                                    index: 1)
                 renderCommandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: vertexBuffer.offset, index: 2)
                 for submesh in mesh.submeshes {
                     renderCommandEncoder.drawIndexedPrimitives(type: .triangle,
@@ -32,6 +34,6 @@ extension Renderable {
 
 extension Array where Element: Renderable {
     func render(renderCommandEncoder: MTLRenderCommandEncoder) {
-        self.forEach{ $0.render(renderCommandEncoder: renderCommandEncoder) }
+        self.forEach { $0.render(renderCommandEncoder: renderCommandEncoder) }
     }
 }

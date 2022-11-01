@@ -14,10 +14,10 @@ protocol Camera: Translatable, Rotatable {
 
 extension Camera {
     var projectionMatrix: simd_float4x4 {
-        YZKProjection.standard(fov: fov, near: near, far: far, aspect: aspect)
+        YZKProjectionMatrix.standard(fov: fov, near: near, far: far, aspect: aspect)
     }
-    
+
     var viewMatrix: simd_float4x4 {
-        YZKView.matrix(position: position, rotation: rotation)
+        YZKViewMatrix.from(position: position, rotation: rotation)
     }
 }

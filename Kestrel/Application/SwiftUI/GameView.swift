@@ -3,7 +3,7 @@ import SwiftUI
 
 struct GameView: View {
     var body: some View {
-        VStack{
+        VStack {
             MetalView()
                 .frame(width: 350, height: 350)
         }

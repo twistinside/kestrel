@@ -2,9 +2,9 @@
 
 class ServiceLocator {
     static let shared = ServiceLocator()
-    
+
     private(set) var renderer: Renderer
-    
+
     private init() {
         self.renderer = Renderer()
     }
