@@ -1,11 +1,11 @@
+#include <simd/simd.h>
+
 #ifndef Common_h
 #define Common_h
 
-#import <simd/simd.h>
-
-typedef struct {
+struct Uniforms {
     matrix_float4x4 projectionMatrix;
     matrix_float4x4 viewMatrix;
-} Uniforms;
+};
 
 #endif /* Common_h */

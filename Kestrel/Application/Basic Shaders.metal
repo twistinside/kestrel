@@ -1,12 +1,7 @@
-//
-//  Basic Shaders.metal
-//  Kestrel
-//
-//  Created by Karl Groff on 2/21/22.
-//
-
-#import <simd/simd.h>
 #include <metal_stdlib>
+#include <simd/simd.h>
+#include "Common.h"
+
 using namespace metal;
 
 struct VertexIn {
@@ -20,7 +15,8 @@ struct VertexOut {
 };
 
 [[vertex]]
-VertexOut basic_vertex(const VertexIn vertex_in [[stage_in]],
+VertexOut basic_vertex(const    VertexIn          vertex_in   [[stage_in]],
+                       constant Uniforms        & uniforms    [[buffer(0)]],
                        constant matrix_float4x4 & modelMatrix [[buffer(1)]]) {
     VertexOut vertexOut;
     vertexOut.position = modelMatrix * vertex_in.position;

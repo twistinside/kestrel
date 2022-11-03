@@ -33,7 +33,7 @@ class Renderer: NSObject {
 
 extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        // Do nothing
+        camera.aspect = Float(size.width) / Float(size.height)
     }
 
     func draw(in view: MTKView) {

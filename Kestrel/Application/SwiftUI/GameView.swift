@@ -5,7 +5,6 @@ struct GameView: View {
     var body: some View {
         VStack {
             MetalView()
-                .frame(width: 350, height: 350)
         }
     }
 }
