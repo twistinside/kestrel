@@ -22,6 +22,7 @@
 		CBA9D64027C9F1FF006EDA6E /* Service Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D63F27C9F1FF006EDA6E /* Service Locator.swift */; };
 		CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBB27C840E8000EDF85 /* Sphere.swift */; };
 		CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBD27C84476000EDF85 /* Cube.swift */; };
+		CBDD0161291625E6005F9071 /* Touchy in Frameworks */ = {isa = PBXBuildFile; productRef = CBDD0160291625E6005F9071 /* Touchy */; };
 		CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC427BED36C00534C23 /* KestrelApp.swift */; };
 		CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC627BED36C00534C23 /* GameView.swift */; };
 		CBDD5AC927BED36C00534C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDD5AC827BED36C00534C23 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBDD0161291625E6005F9071 /* Touchy in Frameworks */,
 				CBA38A4C27C81E1700DDBC82 /* YuzuKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +224,7 @@
 			name = Kestrel;
 			packageProductDependencies = (
 				CBA38A4B27C81E1700DDBC82 /* YuzuKit */,
+				CBDD0160291625E6005F9071 /* Touchy */,
 			);
 			productName = Kestrel;
 			productReference = CBDD5AC127BED36C00534C23 /* Kestrel.app */;
@@ -253,6 +256,7 @@
 			mainGroup = CBDD5AB827BED36C00534C23;
 			packageReferences = (
 				CB0713622910CE74004127EA /* XCRemoteSwiftPackageReference "yuzu-kit" */,
+				CBDD015F291625E6005F9071 /* XCRemoteSwiftPackageReference "touchy" */,
 			);
 			productRefGroup = CBDD5AC227BED36C00534C23 /* Products */;
 			projectDirPath = "";
@@ -550,12 +554,25 @@
 				version = 0.1.0;
 			};
 		};
+		CBDD015F291625E6005F9071 /* XCRemoteSwiftPackageReference "touchy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:twistinside/touchy.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		CBA38A4B27C81E1700DDBC82 /* YuzuKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = YuzuKit;
+		};
+		CBDD0160291625E6005F9071 /* Touchy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBDD015F291625E6005F9071 /* XCRemoteSwiftPackageReference "touchy" */;
+			productName = Touchy;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
