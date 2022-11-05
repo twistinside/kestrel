@@ -123,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				CB6675A627C6B7FA00FD0E5E /* Common.h */,
-				CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */,
 				CBDD5AC427BED36C00534C23 /* KestrelApp.swift */,
 				CBC59CC227C99011000EDF85 /* SwiftUI */,
 				CBC59CC127C98FDB000EDF85 /* macOS */,
@@ -169,6 +168,7 @@
 		CBC59CC527C991ED000EDF85 /* Graphics Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */,
 			);
 			path = "Graphics Shaders";
 			sourceTree = "<group>";
