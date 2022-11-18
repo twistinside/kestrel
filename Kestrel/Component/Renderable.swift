@@ -18,9 +18,9 @@ extension Renderable {
                 renderCommandEncoder.setVertexBytes(&modelMatrix,
                                                     length: MemoryLayout<matrix_float4x4>.stride,
                                                     index: 1)
-                renderCommandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: vertexBuffer.offset, index: 2)
+                renderCommandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: vertexBuffer.offset, index: 0)
                 for submesh in mesh.submeshes {
-                    renderCommandEncoder.drawIndexedPrimitives(type: .triangle,
+                    renderCommandEncoder.drawIndexedPrimitives(type: Kestrel.shared.primitiveType,
                                                                indexCount: submesh.indexCount,
                                                                indexType: submesh.indexType,
                                                                indexBuffer: submesh.indexBuffer.buffer,

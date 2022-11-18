@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB42AC3B290F95BF0094B171 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = CB42AC3A290F95BF0094B171 /* .swiftlint.yml */; };
+		CB495C9C2925FCD300455178 /* Metal Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB495C9B2925FCD300455178 /* Metal Storage.swift */; };
 		CB66759F27C48EB200FD0E5E /* Basic Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */; };
 		CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6675A427C594DD00FD0E5E /* MetalView.swift */; };
 		CB6675A927C6B9B900FD0E5E /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6675A827C6B9B900FD0E5E /* Entity.swift */; };
@@ -17,9 +18,13 @@
 		CB81ACA427C816060019FA2B /* Transformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB81ACA327C816060019FA2B /* Transformable.swift */; };
 		CB81ACA827C81C550019FA2B /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB81ACA727C81C550019FA2B /* Renderable.swift */; };
 		CBA38A4C27C81E1700DDBC82 /* YuzuKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBA38A4B27C81E1700DDBC82 /* YuzuKit */; };
+		CBA986592918894A00AE9E17 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA986582918894A00AE9E17 /* DebugView.swift */; };
+		CBA9865B29188A6300AE9E17 /* UI View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9865A29188A6300AE9E17 /* UI View.swift */; };
+		CBA9865E291A168400AE9E17 /* Kestrel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9865D291A168400AE9E17 /* Kestrel.swift */; };
 		CBA9D63B27C9DDB8006EDA6E /* Standard Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D63A27C9DDB8006EDA6E /* Standard Camera.swift */; };
 		CBA9D63E27C9DE37006EDA6E /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D63D27C9DE37006EDA6E /* Camera.swift */; };
 		CBA9D64027C9F1FF006EDA6E /* Service Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D63F27C9F1FF006EDA6E /* Service Locator.swift */; };
+		CBB84B412920AB3700E7DDF8 /* MTLClearColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB84B402920AB3700E7DDF8 /* MTLClearColor.swift */; };
 		CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBB27C840E8000EDF85 /* Sphere.swift */; };
 		CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBD27C84476000EDF85 /* Cube.swift */; };
 		CBDD0161291625E6005F9071 /* Touchy in Frameworks */ = {isa = PBXBuildFile; productRef = CBDD0160291625E6005F9071 /* Touchy */; };
@@ -31,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		CB42AC3A290F95BF0094B171 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		CB495C9B2925FCD300455178 /* Metal Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Metal Storage.swift"; sourceTree = "<group>"; };
 		CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "Basic Shaders.metal"; sourceTree = "<group>"; };
 		CB6675A427C594DD00FD0E5E /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		CB6675A627C6B7FA00FD0E5E /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -40,9 +46,13 @@
 		CB81AC9F27C814830019FA2B /* Scalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scalable.swift; sourceTree = "<group>"; };
 		CB81ACA327C816060019FA2B /* Transformable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformable.swift; sourceTree = "<group>"; };
 		CB81ACA727C81C550019FA2B /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		CBA986582918894A00AE9E17 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		CBA9865A29188A6300AE9E17 /* UI View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI View.swift"; sourceTree = "<group>"; };
+		CBA9865D291A168400AE9E17 /* Kestrel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kestrel.swift; sourceTree = "<group>"; };
 		CBA9D63A27C9DDB8006EDA6E /* Standard Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Standard Camera.swift"; sourceTree = "<group>"; };
 		CBA9D63D27C9DE37006EDA6E /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		CBA9D63F27C9F1FF006EDA6E /* Service Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Locator.swift"; sourceTree = "<group>"; };
+		CBB84B402920AB3700E7DDF8 /* MTLClearColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTLClearColor.swift; sourceTree = "<group>"; };
 		CBC59CBB27C840E8000EDF85 /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
 		CBC59CBD27C84476000EDF85 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		CBDD5AC127BED36C00534C23 /* Kestrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kestrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB495C9D2925FDC700455178 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				CB495C9B2925FCD300455178 /* Metal Storage.swift */,
+				CBC59CC527C991ED000EDF85 /* Graphics Shaders */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
 		CB6675A727C6B81500FD0E5E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +113,24 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBA9865C291A166900AE9E17 /* Kestrel */ = {
+			isa = PBXGroup;
+			children = (
+				CBA9865D291A168400AE9E17 /* Kestrel.swift */,
+				CBB84B402920AB3700E7DDF8 /* MTLClearColor.swift */,
+			);
+			path = Kestrel;
+			sourceTree = "<group>";
+		};
+		CBA9865F291A16F000AE9E17 /* UI View */ = {
+			isa = PBXGroup;
+			children = (
+				CBA9865A29188A6300AE9E17 /* UI View.swift */,
+				CBA986582918894A00AE9E17 /* DebugView.swift */,
+			);
+			path = "UI View";
 			sourceTree = "<group>";
 		};
 		CBA9D63C27C9DDCB006EDA6E /* Cameras */ = {
@@ -126,6 +163,7 @@
 			children = (
 				CB6675A627C6B7FA00FD0E5E /* Common.h */,
 				CBDD5AC427BED36C00534C23 /* KestrelApp.swift */,
+				CBA9865C291A166900AE9E17 /* Kestrel */,
 				CBC59CC227C99011000EDF85 /* SwiftUI */,
 				CBC59CC127C98FDB000EDF85 /* macOS */,
 			);
@@ -143,6 +181,7 @@
 		CBC59CC227C99011000EDF85 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				CBA9865F291A16F000AE9E17 /* UI View */,
 				CBDD5AC627BED36C00534C23 /* GameView.swift */,
 				CB6675A427C594DD00FD0E5E /* MetalView.swift */,
 			);
@@ -162,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				CBDD5AD327BEDE2400534C23 /* Renderer.swift */,
-				CBC59CC527C991ED000EDF85 /* Graphics Shaders */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -196,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				CBC59CC027C98FB0000EDF85 /* Application */,
+				CB495C9D2925FDC700455178 /* Metal */,
 				CBC59CBF27C98FA6000EDF85 /* Assets */,
 				CB6675A727C6B81500FD0E5E /* Entity */,
 				CB6675AA27C6B9FC00FD0E5E /* Component */,
@@ -312,14 +351,19 @@
 				CB6675B227C6C80700FD0E5E /* Rotatable.swift in Sources */,
 				CBA9D64027C9F1FF006EDA6E /* Service Locator.swift in Sources */,
 				CB6675A927C6B9B900FD0E5E /* Entity.swift in Sources */,
+				CBB84B412920AB3700E7DDF8 /* MTLClearColor.swift in Sources */,
 				CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */,
 				CB81ACA827C81C550019FA2B /* Renderable.swift in Sources */,
+				CBA9865E291A168400AE9E17 /* Kestrel.swift in Sources */,
 				CBDD5AD427BEDE2400534C23 /* Renderer.swift in Sources */,
 				CB81ACA027C814830019FA2B /* Scalable.swift in Sources */,
 				CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */,
+				CBA986592918894A00AE9E17 /* DebugView.swift in Sources */,
 				CBA9D63E27C9DE37006EDA6E /* Camera.swift in Sources */,
 				CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */,
 				CBA9D63B27C9DDB8006EDA6E /* Standard Camera.swift in Sources */,
+				CB495C9C2925FCD300455178 /* Metal Storage.swift in Sources */,
+				CBA9865B29188A6300AE9E17 /* UI View.swift in Sources */,
 				CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

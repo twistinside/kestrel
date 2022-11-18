@@ -1,6 +1,6 @@
 #include <metal_stdlib>
 #include <simd/simd.h>
-#include "../../../Application/Common.h"
+#include "../../Application/Common.h"
 
 using namespace metal;
 
@@ -16,7 +16,6 @@ struct VertexOut {
 
 [[vertex]]
 VertexOut basic_vertex(const    VertexIn          vertex_in   [[stage_in]],
-                       constant Uniforms        & uniforms    [[buffer(0)]],
                        constant matrix_float4x4 & modelMatrix [[buffer(1)]]) {
     VertexOut vertexOut;
     vertexOut.position = modelMatrix * vertex_in.position;

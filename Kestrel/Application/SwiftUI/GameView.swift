@@ -3,9 +3,14 @@ import SwiftUI
 
 struct GameView: View {
     var body: some View {
-        VStack {
+        ZStack {
             MetalView()
+            UIView()
         }
+    }
+
+    init() {
+        print("Initializing game view.")
     }
 }
 

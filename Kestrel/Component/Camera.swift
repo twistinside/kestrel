@@ -1,7 +1,7 @@
 import simd
 import YuzuKit
 
-protocol Camera: Translatable, Rotatable {
+protocol Camera: Rotatable, Translatable {
     var aspect: Float { get set }
     var fov: Float { get set }
     var far: Float { get set }
