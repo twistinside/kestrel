@@ -3,12 +3,9 @@ import MetalKit
 class Renderer: NSObject {
     static let shared = Renderer()
 
-    let device = MetalStorage.shared.device
     let commandQueue = MetalStorage.shared.commandQueue
-
-    let camera = StandardCamera()
-    let cube = KestrelCube()
-    let sphere = KestrelSphere()
+    let device = MetalStorage.shared.device
+    let game = Kestrel.shared
 
     private override init() {
         print("Initializing renderer.")
@@ -18,7 +15,7 @@ class Renderer: NSObject {
 
 extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        camera.aspect = Float(size.width) / Float(size.height)
+        print("View has been resized, it is now \(size.height) tall and \(size.width) wide")
     }
 
     func draw(in view: MTKView) {
@@ -26,7 +23,7 @@ extension Renderer: MTKViewDelegate {
             return
         }
 
-        sphere.update(deltaTime: 0.01)
+        game.update(deltaTime: 0.01)
 
         let commandBuffer = commandQueue.makeCommandBuffer()
         let renderPassDescriptor = view.currentRenderPassDescriptor
@@ -59,7 +56,7 @@ extension Renderer: MTKViewDelegate {
 
         renderCommandEncoder?.setVertexBuffer(mtkMesh.vertexBuffers[0].buffer, offset: 0, index: 0)
 
-        sphere.render(renderCommandEncoder: renderCommandEncoder!)
+        game.render(renderCommandEncoder: renderCommandEncoder!)
 
         renderCommandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
