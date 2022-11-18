@@ -34,27 +34,7 @@ extension Renderer: MTKViewDelegate {
 
         let renderCommandEncoder = commandBuffer!.makeRenderCommandEncoder(descriptor: renderPassDescriptor!)
 
-        let meshBufferAllocator = MTKMeshBufferAllocator(device: device)
-
-        let mdlMesh = MDLMesh(sphereWithExtent: [0.8, 0.8, 0.8],
-                              segments: [100, 100],
-                              inwardNormals: false,
-                              geometryType: Kestrel.shared.geometryType,
-                              allocator: meshBufferAllocator)
-        let mtkMesh = try! MTKMesh(mesh: mdlMesh, device: device)
-
-        let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
-
-        renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-        renderPipelineDescriptor.vertexFunction = MetalStorage.shared.vertexFunction
-        renderPipelineDescriptor.fragmentFunction = MetalStorage.shared.fragmentFunction
-        renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
-
-        let renderPipelineState = try! device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
-
-        renderCommandEncoder?.setRenderPipelineState(renderPipelineState)
-
-        renderCommandEncoder?.setVertexBuffer(mtkMesh.vertexBuffers[0].buffer, offset: 0, index: 0)
+        renderCommandEncoder?.setRenderPipelineState(MetalStorage.shared.renderPipelineState)
 
         game.render(renderCommandEncoder: renderCommandEncoder!)
 

@@ -1,5 +1,6 @@
 import Foundation
 import Metal
+import MetalKit
 
 class MetalStorage: ObservableObject {
     static let shared = MetalStorage()
@@ -8,6 +9,7 @@ class MetalStorage: ObservableObject {
     let device: MTLDevice
     var fragmentFunction: MTLFunction
     var library: MTLLibrary
+    var renderPipelineState: MTLRenderPipelineState
     var vertexFunction: MTLFunction
 
     init() {
@@ -24,5 +26,24 @@ class MetalStorage: ObservableObject {
         self.fragmentFunction = fragmentFunction
         self.library = library
         self.vertexFunction = vertexFunction
+
+        let meshBufferAllocator = MTKMeshBufferAllocator(device: device)
+
+        let mdlMesh = MDLMesh(sphereWithExtent: [0.8, 0.8, 0.8],
+                              segments: [100, 100],
+                              inwardNormals: false,
+                              geometryType: Kestrel.shared.geometryType,
+                              allocator: meshBufferAllocator)
+        let mtkMesh = try! MTKMesh(mesh: mdlMesh, device: device)
+
+        let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
+
+        renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.vertexFunction = vertexFunction
+        renderPipelineDescriptor.fragmentFunction = fragmentFunction
+        renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
+
+        renderPipelineState = try! device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+
     }
 }
