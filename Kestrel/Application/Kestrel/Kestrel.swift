@@ -1,7 +1,13 @@
 import Foundation
 import MetalKit
+import os
 
 class Kestrel: ObservableObject {
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: Kestrel.self)
+    )
+
     static let shared = Kestrel()
 
     var entities: [Entity] = []
@@ -19,7 +25,9 @@ class Kestrel: ObservableObject {
     }
 
     func update(deltaTime: Float) {
+        Self.logger.trace("Start entity update")
         entities.update(deltaTime: deltaTime)
+        Self.logger.trace("End entity update")
     }
 
     func render(renderCommandEncoder: MTLRenderCommandEncoder) {

@@ -1,8 +1,14 @@
 import Foundation
 import Metal
 import MetalKit
+import os
 
 class MetalStorage: ObservableObject {
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: MetalStorage.self)
+    )
+
     static let shared = MetalStorage()
 
     let commandQueue: MTLCommandQueue
@@ -13,13 +19,14 @@ class MetalStorage: ObservableObject {
     var vertexFunction: MTLFunction
 
     init() {
-        print("Initializing metal storage object.")
+        Self.logger.trace("Initializing metal storage object.")
         guard let device = MTLCreateSystemDefaultDevice(),
               let commandQueue = device.makeCommandQueue(),
               let library = device.makeDefaultLibrary(),
               let vertexFunction = library.makeFunction(name: "basic_vertex"),
               let fragmentFunction = library.makeFunction(name: "basic_fragment") else {
-            fatalError("Could not initialize metal sub system.")
+            Self.logger.critical("Could not initialize metal sub system.")
+            fatalError()
         }
         self.commandQueue = commandQueue
         self.device = device
@@ -44,6 +51,6 @@ class MetalStorage: ObservableObject {
         renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
 
         renderPipelineState = try! device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
-
+        Self.logger.trace("Initialization complete.")
     }
 }
