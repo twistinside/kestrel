@@ -1,3 +1,4 @@
+import GameController
 import MetalKit
 
 class KestrelSphere: Entity, Renderable, Transformable {
@@ -6,7 +7,8 @@ class KestrelSphere: Entity, Renderable, Transformable {
     var rotation: SIMD3<Float>
     var scale: SIMD3<Float>
 
-    var elapsedTime: Float = 0.0
+    var isGrowing: Bool = false
+    var isShrinking: Bool = true
 
     init() {
         let device = MTLCreateSystemDefaultDevice()!
@@ -25,5 +27,22 @@ class KestrelSphere: Entity, Renderable, Transformable {
 
     override func update(deltaTime: Float) {
         self.rotate(by: SIMD3<Float>(deltaTime, deltaTime/2, deltaTime/3))
+        if self.scale.x < 0.1 {
+            self.isGrowing = true
+            self.isShrinking = false
+        }
+        if self.scale.x > 1 {
+            self.isGrowing = false
+            self.isShrinking = true
+        }
+        let keysPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .spacebar)?.isPressed ?? false
+        if keysPressed {
+            if isGrowing {
+                self.scale += SIMD3<Float>(repeating: 0.005)
+            }
+            if isShrinking {
+                self.scale -= SIMD3<Float>(repeating: 0.005)
+            }
+        }
     }
 }

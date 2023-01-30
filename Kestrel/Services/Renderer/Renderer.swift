@@ -3,8 +3,8 @@ import MetalKit
 class Renderer: NSObject {
     static let shared = Renderer()
 
-    let commandQueue = MetalStorage.shared.commandQueue
-    let device = MetalStorage.shared.device
+    let commandQueue = MetalStore.shared.commandQueue
+    let device = MetalStore.shared.device
     let game = Kestrel.shared
 
     private override init() {
@@ -34,7 +34,7 @@ extension Renderer: MTKViewDelegate {
 
         let renderCommandEncoder = commandBuffer!.makeRenderCommandEncoder(descriptor: renderPassDescriptor!)
 
-        renderCommandEncoder?.setRenderPipelineState(MetalStorage.shared.renderPipelineState)
+        renderCommandEncoder?.setRenderPipelineState(MetalStore.shared.renderPipelineState)
 
         game.render(renderCommandEncoder: renderCommandEncoder!)
 

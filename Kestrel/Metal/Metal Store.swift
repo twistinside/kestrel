@@ -3,13 +3,13 @@ import Metal
 import MetalKit
 import os
 
-class MetalStorage: ObservableObject {
+class MetalStore: ObservableObject {
     private static let logger = Logger(
         subsystem: Bundle.main.bundleIdentifier!,
-        category: String(describing: MetalStorage.self)
+        category: String(describing: MetalStore.self)
     )
 
-    static let shared = MetalStorage()
+    static let shared = MetalStore()
 
     let commandQueue: MTLCommandQueue
     let device: MTLDevice

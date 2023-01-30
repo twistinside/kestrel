@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB42AC3B290F95BF0094B171 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = CB42AC3A290F95BF0094B171 /* .swiftlint.yml */; };
-		CB495C9C2925FCD300455178 /* Metal Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB495C9B2925FCD300455178 /* Metal Storage.swift */; };
+		CB495C9C2925FCD300455178 /* Metal Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB495C9B2925FCD300455178 /* Metal Store.swift */; };
 		CB66759F27C48EB200FD0E5E /* Basic Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */; };
 		CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6675A427C594DD00FD0E5E /* MetalView.swift */; };
 		CB6675A927C6B9B900FD0E5E /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6675A827C6B9B900FD0E5E /* Entity.swift */; };
@@ -27,7 +27,6 @@
 		CBB84B412920AB3700E7DDF8 /* MTLClearColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB84B402920AB3700E7DDF8 /* MTLClearColor.swift */; };
 		CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBB27C840E8000EDF85 /* Sphere.swift */; };
 		CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBD27C84476000EDF85 /* Cube.swift */; };
-		CBDD0161291625E6005F9071 /* Touchy in Frameworks */ = {isa = PBXBuildFile; productRef = CBDD0160291625E6005F9071 /* Touchy */; };
 		CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC427BED36C00534C23 /* KestrelApp.swift */; };
 		CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC627BED36C00534C23 /* GameView.swift */; };
 		CBDD5AC927BED36C00534C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDD5AC827BED36C00534C23 /* Assets.xcassets */; };
@@ -36,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		CB42AC3A290F95BF0094B171 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		CB495C9B2925FCD300455178 /* Metal Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Metal Storage.swift"; sourceTree = "<group>"; };
+		CB495C9B2925FCD300455178 /* Metal Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Metal Store.swift"; sourceTree = "<group>"; };
 		CB66759E27C48EB200FD0E5E /* Basic Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "Basic Shaders.metal"; sourceTree = "<group>"; };
 		CB6675A427C594DD00FD0E5E /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		CB6675A627C6B7FA00FD0E5E /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -68,7 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBDD0161291625E6005F9071 /* Touchy in Frameworks */,
 				CBA38A4C27C81E1700DDBC82 /* YuzuKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,7 +77,7 @@
 		CB495C9D2925FDC700455178 /* Metal */ = {
 			isa = PBXGroup;
 			children = (
-				CB495C9B2925FCD300455178 /* Metal Storage.swift */,
+				CB495C9B2925FCD300455178 /* Metal Store.swift */,
 				CBC59CC527C991ED000EDF85 /* Graphics Shaders */,
 			);
 			path = Metal;
@@ -263,7 +261,6 @@
 			name = Kestrel;
 			packageProductDependencies = (
 				CBA38A4B27C81E1700DDBC82 /* YuzuKit */,
-				CBDD0160291625E6005F9071 /* Touchy */,
 			);
 			productName = Kestrel;
 			productReference = CBDD5AC127BED36C00534C23 /* Kestrel.app */;
@@ -295,7 +292,6 @@
 			mainGroup = CBDD5AB827BED36C00534C23;
 			packageReferences = (
 				CB0713622910CE74004127EA /* XCRemoteSwiftPackageReference "yuzu-kit" */,
-				CBDD015F291625E6005F9071 /* XCRemoteSwiftPackageReference "touchy" */,
 			);
 			productRefGroup = CBDD5AC227BED36C00534C23 /* Products */;
 			projectDirPath = "";
@@ -362,7 +358,7 @@
 				CBA9D63E27C9DE37006EDA6E /* Camera.swift in Sources */,
 				CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */,
 				CBA9D63B27C9DDB8006EDA6E /* Standard Camera.swift in Sources */,
-				CB495C9C2925FCD300455178 /* Metal Storage.swift in Sources */,
+				CB495C9C2925FCD300455178 /* Metal Store.swift in Sources */,
 				CBA9865B29188A6300AE9E17 /* UI View.swift in Sources */,
 				CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */,
 			);
@@ -511,6 +507,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,6 +544,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -598,25 +596,12 @@
 				version = 0.1.0;
 			};
 		};
-		CBDD015F291625E6005F9071 /* XCRemoteSwiftPackageReference "touchy" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:twistinside/touchy.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		CBA38A4B27C81E1700DDBC82 /* YuzuKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = YuzuKit;
-		};
-		CBDD0160291625E6005F9071 /* Touchy */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CBDD015F291625E6005F9071 /* XCRemoteSwiftPackageReference "touchy" */;
-			productName = Touchy;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

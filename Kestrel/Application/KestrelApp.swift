@@ -1,13 +1,15 @@
+import GameKit
 import SwiftUI
 
 @main
 struct KestrelApp: App {
     @StateObject var game = Kestrel.shared
-    @StateObject var metal = MetalStorage.shared
+    @StateObject var metal = MetalStore.shared
     @StateObject var services = ServiceLocator.shared
 
     init() {
         print("Initializing kestrel app.")
+        print("Controllers discovered: \(GCController.controllers()))")
     }
 
     var body: some Scene {

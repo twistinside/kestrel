@@ -7,9 +7,7 @@ struct MetalView: View {
 
     var body: some View {
         MetalViewRepresentable(metalView: $metalView)
-            .onAppear {
-                renderer = Renderer.shared
-            }
+            .onAppear { renderer = Renderer.shared }
     }
 
     init() {
@@ -24,11 +22,12 @@ struct MetalViewRepresentable: NSViewRepresentable {
         metalView.clearColor = MTLClearColor(red: 0.73, green: 0.23, blue: 0.35, alpha: 1.0)
         metalView.colorPixelFormat = .bgra8Unorm
         metalView.delegate = ServiceLocator.shared.renderer
-        metalView.device = MetalStorage.shared.device
+        metalView.device = MetalStore.shared.device
         return metalView
     }
 
     func updateNSView(_ uiView: NSViewType, context: Context) {
+        // do nothing
     }
 }
 

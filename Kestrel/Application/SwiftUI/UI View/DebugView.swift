@@ -23,11 +23,11 @@ struct DebugView: View {
     }
 
     func setBlack() {
-        setClearColor(MTLClearColor.black())
+        setClearColor(MTLClearColor.black)
     }
 
     func setMaroon() {
-        setClearColor(MTLClearColor.maroon())
+        setClearColor(MTLClearColor.maroon)
     }
 
     func setClearColor(_ clearColor: MTLClearColor) {
