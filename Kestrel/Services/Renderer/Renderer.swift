@@ -1,6 +1,12 @@
 import MetalKit
+import os
 
 class Renderer: NSObject {
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: Renderer.self)
+    )
+
     static let shared = Renderer()
 
     let commandQueue = MetalStore.shared.commandQueue
@@ -8,14 +14,15 @@ class Renderer: NSObject {
     let game = Kestrel.shared
 
     private override init() {
-        print("Initializing renderer.")
+        Renderer.logger.trace("Initializing renderer")
         super.init()
+        Renderer.logger.trace("Initialization complete")
     }
 }
 
 extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        print("View has been resized, it is now \(size.height) tall and \(size.width) wide")
+        Renderer.logger.trace("View has been resized, it is now \(size.height) tall and \(size.width) wide")
     }
 
     func draw(in view: MTKView) {
@@ -25,21 +32,25 @@ extension Renderer: MTKViewDelegate {
 
         game.update(deltaTime: 0.01)
 
-        let commandBuffer = commandQueue.makeCommandBuffer()
-        let renderPassDescriptor = view.currentRenderPassDescriptor
+        guard let commandBuffer = commandQueue.makeCommandBuffer(),
+              let renderPassDescriptor = view.currentRenderPassDescriptor else {
+            fatalError("Could not get command buffer")
+        }
 
-        renderPassDescriptor?.colorAttachments[0].clearColor = Kestrel.shared.clearColor
-        renderPassDescriptor?.colorAttachments[0].loadAction = .clear
-        renderPassDescriptor?.colorAttachments[0].storeAction = .store
+        renderPassDescriptor.colorAttachments[0].clearColor = RenderSettings.shared.clearColor
+        renderPassDescriptor.colorAttachments[0].loadAction = .clear
+        renderPassDescriptor.colorAttachments[0].storeAction = .store
 
-        let renderCommandEncoder = commandBuffer!.makeRenderCommandEncoder(descriptor: renderPassDescriptor!)
+        guard let renderCommandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else {
+            fatalError("Could not get render command encoder")
+        }
 
-        renderCommandEncoder?.setRenderPipelineState(MetalStore.shared.renderPipelineState)
+        renderCommandEncoder.setRenderPipelineState(MetalStore.shared.renderPipelineState)
 
-        game.render(renderCommandEncoder: renderCommandEncoder!)
+        game.render(renderCommandEncoder: renderCommandEncoder)
 
-        renderCommandEncoder?.endEncoding()
-        commandBuffer?.present(drawable)
-        commandBuffer?.commit()
+        renderCommandEncoder.endEncoding()
+        commandBuffer.present(drawable)
+        commandBuffer.commit()
     }
 }

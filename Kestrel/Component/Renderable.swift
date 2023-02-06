@@ -20,7 +20,7 @@ extension Renderable {
                                                     index: 1)
                 renderCommandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: vertexBuffer.offset, index: 0)
                 for submesh in mesh.submeshes {
-                    renderCommandEncoder.drawIndexedPrimitives(type: Kestrel.shared.primitiveType,
+                    renderCommandEncoder.drawIndexedPrimitives(type: RenderSettings.shared.primitiveType,
                                                                indexCount: submesh.indexCount,
                                                                indexType: submesh.indexType,
                                                                indexBuffer: submesh.indexBuffer.buffer,

@@ -15,31 +15,31 @@ class MetalStore: ObservableObject {
     let device: MTLDevice
     var fragmentFunction: MTLFunction
     var library: MTLLibrary
+    let meshBufferAllocator: MTKMeshBufferAllocator
     var renderPipelineState: MTLRenderPipelineState
     var vertexFunction: MTLFunction
 
     init() {
-        Self.logger.trace("Initializing metal storage object.")
+        MetalStore.logger.trace("Initializing metal store.")
         guard let device = MTLCreateSystemDefaultDevice(),
               let commandQueue = device.makeCommandQueue(),
               let library = device.makeDefaultLibrary(),
               let vertexFunction = library.makeFunction(name: "basic_vertex"),
               let fragmentFunction = library.makeFunction(name: "basic_fragment") else {
-            Self.logger.critical("Could not initialize metal sub system.")
+            MetalStore.logger.critical("Could not initialize metal sub system")
             fatalError()
         }
         self.commandQueue = commandQueue
         self.device = device
         self.fragmentFunction = fragmentFunction
         self.library = library
+        self.meshBufferAllocator = MTKMeshBufferAllocator(device: device)
         self.vertexFunction = vertexFunction
-
-        let meshBufferAllocator = MTKMeshBufferAllocator(device: device)
 
         let mdlMesh = MDLMesh(sphereWithExtent: [0.8, 0.8, 0.8],
                               segments: [100, 100],
                               inwardNormals: false,
-                              geometryType: Kestrel.shared.geometryType,
+                              geometryType: .triangles,
                               allocator: meshBufferAllocator)
         let mtkMesh = try! MTKMesh(mesh: mdlMesh, device: device)
 
@@ -51,6 +51,6 @@ class MetalStore: ObservableObject {
         renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
 
         renderPipelineState = try! device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
-        Self.logger.trace("Initialization complete.")
+        MetalStore.logger.trace("Initialization complete.")
     }
 }

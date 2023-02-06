@@ -1,4 +1,5 @@
 import Foundation
+import os
 
 class Entity {
     let uuid: UUID = UUID()

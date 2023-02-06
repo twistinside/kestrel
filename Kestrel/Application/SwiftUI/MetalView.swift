@@ -1,7 +1,13 @@
-import SwiftUI
 import MetalKit
+import os
+import SwiftUI
 
 struct MetalView: View {
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: MetalView.self)
+    )
+
     @State private var metalView = MTKView()
     @State private var renderer: Renderer?
 
@@ -11,7 +17,7 @@ struct MetalView: View {
     }
 
     init() {
-        print("Initializing metal view.")
+        MetalView.logger.trace("Initializing metal view")
     }
 }
 

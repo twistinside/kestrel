@@ -13,11 +13,13 @@ protocol Camera: Rotatable, Translatable {
 }
 
 extension Camera {
-    var projectionMatrix: simd_float4x4 {
-        YZKProjectionMatrix.standard(fov: fov, near: near, far: far, aspect: aspect)
+    var projectionMatrix: matrix_float4x4 {
+        return matrix_float4x4.perspective(degreesFov: fov, aspectRatio: aspect, near: near, far: far)
     }
 
-    var viewMatrix: simd_float4x4 {
-        YZKViewMatrix.from(position: position, rotation: rotation)
+    var viewMatrix: matrix_float4x4 {
+        var viewMatrix = matrix_identity_float4x4
+        viewMatrix.translate(direction: -position)
+        return viewMatrix
     }
 }

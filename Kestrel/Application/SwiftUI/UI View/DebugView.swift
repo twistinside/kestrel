@@ -1,8 +1,14 @@
 import MetalKit
+import os
 import SwiftUI
 
 struct DebugView: View {
-    @EnvironmentObject var game: Kestrel
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: DebugView.self)
+    )
+
+    @EnvironmentObject var renderSettings: RenderSettings
 
     var body: some View {
         VStack {
@@ -19,7 +25,7 @@ struct DebugView: View {
     }
 
     init() {
-        print("Initializing debug view.")
+        DebugView.logger.trace("Initializing debug view")
     }
 
     func setBlack() {
@@ -31,7 +37,7 @@ struct DebugView: View {
     }
 
     func setClearColor(_ clearColor: MTLClearColor) {
-        game.clearColor = clearColor
+        renderSettings.clearColor = clearColor
     }
 
     func setLine() {
@@ -43,12 +49,12 @@ struct DebugView: View {
     }
 
     func setPrimitiveType(_ primitiveType: MTLPrimitiveType) {
-        game.primitiveType = primitiveType
+        renderSettings.primitiveType = primitiveType
     }
 }
 
 struct DebugView_Previews: PreviewProvider {
     static var previews: some View {
-        DebugView().environmentObject(Kestrel.shared)
+        DebugView().environmentObject(RenderSettings())
     }
 }
