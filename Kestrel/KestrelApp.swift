@@ -10,7 +10,7 @@ struct KestrelApp: App {
     )
 
     var game: Kestrel
-    var meshes: MeshStore
+    var meshes: MeshLibrary
     var metal: MetalStore
     var services: ServiceLocator
 
@@ -20,7 +20,7 @@ struct KestrelApp: App {
         KestrelApp.logger.trace("Initializing kestrel app")
         KestrelApp.logger.trace("Controllers discovered: \(GCController.controllers()))")
         self.metal = MetalStore.shared
-        self.meshes = MeshStore.shared
+        self.meshes = MeshLibrary.shared
         self.game = Kestrel.shared
         self.services = ServiceLocator.shared
         KestrelApp.logger.trace("Initialization complete")

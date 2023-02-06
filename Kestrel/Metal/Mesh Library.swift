@@ -2,18 +2,18 @@ import MetalKit
 import ModelIO
 import os
 
-class MeshStore: ObservableObject {
+class MeshLibrary {
     private static let logger = Logger(
         subsystem: Bundle.main.bundleIdentifier!,
-        category: String(describing: MeshStore.self)
+        category: String(describing: MeshLibrary.self)
     )
 
-    static let shared = MeshStore()
+    static let shared = MeshLibrary()
 
     private let meshes: [MeshNames: MTKMesh]
 
     init() {
-        MeshStore.logger.trace("Initializing mesh store")
+        MeshLibrary.logger.trace("Initializing mesh store")
         var meshes: [MeshNames: MTKMesh] = [:]
 
         let vertexDescriptor = MTLVertexDescriptor()
@@ -32,7 +32,7 @@ class MeshStore: ObservableObject {
         (meshDescriptor.attributes[0] as! MDLVertexAttribute).name = MDLVertexAttributePosition
 
         for name in MeshNames.allCases {
-            MeshStore.logger.trace("Initializing \(name.rawValue)")
+            MeshLibrary.logger.trace("Initializing \(name.rawValue)")
             guard let meshURL = Bundle.main.url(forResource: name.rawValue, withExtension: "obj") else {
                 fatalError()
             }
@@ -46,10 +46,10 @@ class MeshStore: ObservableObject {
             } catch {
                 fatalError("couldn't load mesh")
             }
-            MeshStore.logger.trace("Initialization of \(name.rawValue) complete")
+            MeshLibrary.logger.trace("Initialization of \(name.rawValue) complete")
         }
         self.meshes = meshes
-        MeshStore.logger.trace("Initialization complete")
+        MeshLibrary.logger.trace("Initialization complete")
     }
 
     func getMeshNamed(_ name: MeshNames) -> MTKMesh {

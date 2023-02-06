@@ -32,7 +32,7 @@
 		CBDB4ABC2990373800DABA3D /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = CBDB4ABB2990373800DABA3D /* sphere.obj */; };
 		CBDB4ABE299037AC00DABA3D /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = CBDB4ABD299037AC00DABA3D /* star.obj */; };
 		CBDB4AC22990386A00DABA3D /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = CBDB4AC12990386A00DABA3D /* teapot.obj */; };
-		CBDB4AC429903A7200DABA3D /* Mesh Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDB4AC329903A7200DABA3D /* Mesh Store.swift */; };
+		CBDB4AC429903A7200DABA3D /* Mesh Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDB4AC329903A7200DABA3D /* Mesh Library.swift */; };
 		CBDD5AC527BED36C00534C23 /* KestrelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC427BED36C00534C23 /* KestrelApp.swift */; };
 		CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDD5AC627BED36C00534C23 /* GameView.swift */; };
 		CBDD5AC927BED36C00534C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDD5AC827BED36C00534C23 /* Assets.xcassets */; };
@@ -65,7 +65,7 @@
 		CBDB4ABB2990373800DABA3D /* sphere.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		CBDB4ABD299037AC00DABA3D /* star.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = star.obj; sourceTree = "<group>"; };
 		CBDB4AC12990386A00DABA3D /* teapot.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
-		CBDB4AC329903A7200DABA3D /* Mesh Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mesh Store.swift"; sourceTree = "<group>"; };
+		CBDB4AC329903A7200DABA3D /* Mesh Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mesh Library.swift"; sourceTree = "<group>"; };
 		CBDD5AC127BED36C00534C23 /* Kestrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kestrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDD5AC427BED36C00534C23 /* KestrelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KestrelApp.swift; sourceTree = "<group>"; };
 		CBDD5AC627BED36C00534C23 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				CB4771F02987828F00079755 /* Math.swift */,
-				CBDB4AC329903A7200DABA3D /* Mesh Store.swift */,
+				CBDB4AC329903A7200DABA3D /* Mesh Library.swift */,
 				CB495C9B2925FCD300455178 /* Metal Store.swift */,
 				CBC59CC527C991ED000EDF85 /* Graphics Shaders */,
 			);
@@ -375,7 +375,7 @@
 				CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */,
 				CB6675B227C6C80700FD0E5E /* Rotatable.swift in Sources */,
 				CBA9D64027C9F1FF006EDA6E /* Service Locator.swift in Sources */,
-				CBDB4AC429903A7200DABA3D /* Mesh Store.swift in Sources */,
+				CBDB4AC429903A7200DABA3D /* Mesh Library.swift in Sources */,
 				CB6675A927C6B9B900FD0E5E /* Entity.swift in Sources */,
 				CBB84B412920AB3700E7DDF8 /* MTLClearColor.swift in Sources */,
 				CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */,
