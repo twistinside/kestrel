@@ -8,8 +8,9 @@ class KestrelSphere: Entity, Renderable, Transformable {
         category: String(describing: KestrelSphere.self)
     )
 
-    var meshes: [MTKMesh]
+    let meshes: [MTKMesh]
     var position: SIMD3<Float>
+    let renderPipelineState: MTLRenderPipelineState
     var rotation: SIMD3<Float>
     var scale: SIMD3<Float>
 
@@ -28,6 +29,7 @@ class KestrelSphere: Entity, Renderable, Transformable {
         let mtkMesh = try! MTKMesh(mesh: mdlMesh, device: device)
         self.meshes = [mtkMesh]
         self.position = SIMD3<Float>(repeating: 0.0)
+        self.renderPipelineState = RenderPiplelineStateLibrary.shared.getRenderPipelineStateNamed(.basic)
         self.rotation = SIMD3<Float>(repeating: 0.0)
         self.scale = SIMD3<Float>(repeating: 1.0)
         KestrelSphere.logger.trace("Initialization complete")
@@ -66,7 +68,7 @@ class KestrelSphere: Entity, Renderable, Transformable {
         }
 
         let spaceBarIsPressed: Bool =
-            GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .spacebar)?.isPressed ?? false
+        GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .spacebar)?.isPressed ?? false
         if spaceBarIsPressed {
             if isGrowing {
                 KestrelSphere.logger.trace("Grow the sphere")

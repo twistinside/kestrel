@@ -1,0 +1,61 @@
+import MetalKit
+import os
+
+class RenderPiplelineStateLibrary {
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: RenderPiplelineStateLibrary.self)
+    )
+
+    static let shared = RenderPiplelineStateLibrary()
+
+    private let renderPipelineStates: [RenderPipelineStateName: MTLRenderPipelineState]
+
+    init() {
+        RenderPiplelineStateLibrary.logger.trace("Initializing render pipeline state library")
+        var renderPipelineStates: [RenderPipelineStateName: MTLRenderPipelineState] = [:]
+
+        var renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.basic)
+        do {
+            let renderPipelineState =
+                try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+            renderPipelineStates[.basic] = renderPipelineState
+        } catch {
+            RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")
+            fatalError()
+        }
+
+        renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.mono)
+        do {
+            let renderPipelineState =
+                try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+            renderPipelineStates[.mono] = renderPipelineState
+        } catch {
+            RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")
+            fatalError()
+        }
+
+        renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoWeighted)
+        do {
+            let renderPipelineState =
+            try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+            renderPipelineStates[.monoWeighted] = renderPipelineState
+        } catch {
+            RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")
+            fatalError()
+        }
+
+        self.renderPipelineStates = renderPipelineStates
+        RenderPiplelineStateLibrary.logger.trace("Initialization complete")
+    }
+
+    func getRenderPipelineStateNamed(_ name: RenderPipelineStateName) -> MTLRenderPipelineState {
+        return renderPipelineStates[name]!
+    }
+}
+
+enum RenderPipelineStateName: CaseIterable {
+    case basic
+    case mono
+    case monoWeighted
+}

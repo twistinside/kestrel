@@ -27,3 +27,20 @@ VertexOut basic_vertex(const    VertexIn          vertex_in   [[stage_in]],
 float4 basic_fragment(VertexOut vertex_out [[stage_in]]) {
     return float4(vertex_out.color, 1);
 }
+
+[[fragment]]
+float4 mono_fragment(VertexOut vertex_out [[stage_in]]) {
+    float brightness = (vertex_out.color.r + vertex_out.color.g + vertex_out.color.z) / 3;
+    float3 mono_rgb = float3(brightness);
+    return float4(mono_rgb, 1);
+}
+
+[[fragment]]
+float4 weighted_mono_fragment(VertexOut vertex_out [[stage_in]]) {
+    float r = 0.299 * vertex_out.color.r;
+    float g = 0.587 * vertex_out.color.g;
+    float b = 0.114 * vertex_out.color.b;
+    float brightness = r + g + b;
+    float3 mono_rgb = float3(brightness);
+    return float4(mono_rgb, 1);
+}

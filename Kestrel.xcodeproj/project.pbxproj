@@ -28,7 +28,10 @@
 		CBA9D64027C9F1FF006EDA6E /* Service Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D63F27C9F1FF006EDA6E /* Service Locator.swift */; };
 		CBB84B412920AB3700E7DDF8 /* MTLClearColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB84B402920AB3700E7DDF8 /* MTLClearColor.swift */; };
 		CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBB27C840E8000EDF85 /* Sphere.swift */; };
-		CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC59CBD27C84476000EDF85 /* Cube.swift */; };
+		CBD16DFC2998170800501157 /* Render Pipeline Descriptor Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD16DFB2998170800501157 /* Render Pipeline Descriptor Library.swift */; };
+		CBD16DFE2998189F00501157 /* Vertex Descriptor Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD16DFD2998189F00501157 /* Vertex Descriptor Library.swift */; };
+		CBD16E00299969F200501157 /* Shader Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD16DFF299969F200501157 /* Shader Library.swift */; };
+		CBD16E0229996EF700501157 /* Render Pipeline State Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD16E0129996EF700501157 /* Render Pipeline State Library.swift */; };
 		CBDB4ABC2990373800DABA3D /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = CBDB4ABB2990373800DABA3D /* sphere.obj */; };
 		CBDB4ABE299037AC00DABA3D /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = CBDB4ABD299037AC00DABA3D /* star.obj */; };
 		CBDB4AC22990386A00DABA3D /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = CBDB4AC12990386A00DABA3D /* teapot.obj */; };
@@ -61,7 +64,10 @@
 		CBA9D63F27C9F1FF006EDA6E /* Service Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Locator.swift"; sourceTree = "<group>"; };
 		CBB84B402920AB3700E7DDF8 /* MTLClearColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTLClearColor.swift; sourceTree = "<group>"; };
 		CBC59CBB27C840E8000EDF85 /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
-		CBC59CBD27C84476000EDF85 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
+		CBD16DFB2998170800501157 /* Render Pipeline Descriptor Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Render Pipeline Descriptor Library.swift"; sourceTree = "<group>"; };
+		CBD16DFD2998189F00501157 /* Vertex Descriptor Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vertex Descriptor Library.swift"; sourceTree = "<group>"; };
+		CBD16DFF299969F200501157 /* Shader Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shader Library.swift"; sourceTree = "<group>"; };
+		CBD16E0129996EF700501157 /* Render Pipeline State Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Render Pipeline State Library.swift"; sourceTree = "<group>"; };
 		CBDB4ABB2990373800DABA3D /* sphere.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		CBDB4ABD299037AC00DABA3D /* star.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = star.obj; sourceTree = "<group>"; };
 		CBDB4AC12990386A00DABA3D /* teapot.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
@@ -92,6 +98,10 @@
 				CB4771F02987828F00079755 /* Math.swift */,
 				CBDB4AC329903A7200DABA3D /* Mesh Library.swift */,
 				CB495C9B2925FCD300455178 /* Metal Store.swift */,
+				CBD16DFB2998170800501157 /* Render Pipeline Descriptor Library.swift */,
+				CBD16E0129996EF700501157 /* Render Pipeline State Library.swift */,
+				CBD16DFF299969F200501157 /* Shader Library.swift */,
+				CBD16DFD2998189F00501157 /* Vertex Descriptor Library.swift */,
 				CBC59CC527C991ED000EDF85 /* Graphics Shaders */,
 			);
 			path = Metal;
@@ -157,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				CBC59CBB27C840E8000EDF85 /* Sphere.swift */,
-				CBC59CBD27C84476000EDF85 /* Cube.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -371,24 +380,27 @@
 			files = (
 				CB81ACA427C816060019FA2B /* Transformable.swift in Sources */,
 				CB66759F27C48EB200FD0E5E /* Basic Shaders.metal in Sources */,
+				CBD16DFE2998189F00501157 /* Vertex Descriptor Library.swift in Sources */,
 				CB6675AF27C6C5F400FD0E5E /* Translatable.swift in Sources */,
 				CBDD5AC727BED36C00534C23 /* GameView.swift in Sources */,
 				CB6675B227C6C80700FD0E5E /* Rotatable.swift in Sources */,
 				CBA9D64027C9F1FF006EDA6E /* Service Locator.swift in Sources */,
+				CBD16DFC2998170800501157 /* Render Pipeline Descriptor Library.swift in Sources */,
 				CBDB4AC429903A7200DABA3D /* Mesh Library.swift in Sources */,
 				CB6675A927C6B9B900FD0E5E /* Entity.swift in Sources */,
 				CBB84B412920AB3700E7DDF8 /* MTLClearColor.swift in Sources */,
+				CBD16E00299969F200501157 /* Shader Library.swift in Sources */,
 				CB6675A527C594DD00FD0E5E /* MetalView.swift in Sources */,
 				CB81ACA827C81C550019FA2B /* Renderable.swift in Sources */,
 				CBA9865E291A168400AE9E17 /* Kestrel.swift in Sources */,
 				CBDD5AD427BEDE2400534C23 /* Renderer.swift in Sources */,
 				CB81ACA027C814830019FA2B /* Scalable.swift in Sources */,
+				CBD16E0229996EF700501157 /* Render Pipeline State Library.swift in Sources */,
 				CB4771F12987828F00079755 /* Math.swift in Sources */,
 				CBC59CBC27C840E8000EDF85 /* Sphere.swift in Sources */,
 				CBA986592918894A00AE9E17 /* DebugView.swift in Sources */,
 				CB916CB62990952900B1B5D8 /* Render Settings.swift in Sources */,
 				CBA9D63E27C9DE37006EDA6E /* Camera.swift in Sources */,
-				CBC59CBE27C84476000EDF85 /* Cube.swift in Sources */,
 				CBA9D63B27C9DDB8006EDA6E /* Standard Camera.swift in Sources */,
 				CB495C9C2925FCD300455178 /* Metal Store.swift in Sources */,
 				CBA9865B29188A6300AE9E17 /* UI View.swift in Sources */,

@@ -4,6 +4,7 @@ import YuzuKit
 protocol Renderable: Entity {
     var meshes: [MTKMesh] { get }
     var position: SIMD3<Float> { get }
+    var renderPipelineState: MTLRenderPipelineState { get }
     var rotation: SIMD3<Float> { get }
     var scale: SIMD3<Float> { get }
 
@@ -15,6 +16,15 @@ extension Renderable {
         for mesh in meshes {
             for vertexBuffer in mesh.vertexBuffers {
                 var modelMatrix = YZKModelMatrix.from(position: position, rotation: rotation, scale: scale)
+                let random = Bool.random()
+                var renderPipelineStateName: RenderPipelineStateName
+                if random {
+                    renderPipelineStateName = .basic
+                } else {
+                    renderPipelineStateName = .mono
+                }
+                let renderPipelineState = RenderPiplelineStateLibrary.shared.getRenderPipelineStateNamed(renderPipelineStateName)
+                renderCommandEncoder.setRenderPipelineState(renderPipelineState)
                 renderCommandEncoder.setVertexBytes(&modelMatrix,
                                                     length: MemoryLayout<matrix_float4x4>.stride,
                                                     index: 1)

@@ -12,7 +12,11 @@ struct KestrelApp: App {
     var game: Kestrel
     var meshes: MeshLibrary
     var metal: MetalStore
+    var renderPipelineDescriptors: RenderPiplelineDescriptorLibrary
+    var renderPipelineStates: RenderPiplelineStateLibrary
     var services: ServiceLocator
+    var shaders: ShaderLibrary
+    var vertexDescriptors: VertexDescriptorLibrary
 
     @StateObject var renderSettings: RenderSettings = RenderSettings.shared
 
@@ -20,9 +24,13 @@ struct KestrelApp: App {
         KestrelApp.logger.trace("Initializing kestrel app")
         KestrelApp.logger.trace("Controllers discovered: \(GCController.controllers()))")
         self.metal = MetalStore.shared
+        self.vertexDescriptors = VertexDescriptorLibrary.shared
         self.meshes = MeshLibrary.shared
-        self.game = Kestrel.shared
+        self.shaders = ShaderLibrary.shared
+        self.renderPipelineDescriptors = RenderPiplelineDescriptorLibrary.shared
+        self.renderPipelineStates = RenderPiplelineStateLibrary.shared
         self.services = ServiceLocator.shared
+        self.game = Kestrel.shared
         KestrelApp.logger.trace("Initialization complete")
     }
 

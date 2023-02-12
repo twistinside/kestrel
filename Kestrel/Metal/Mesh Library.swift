@@ -10,11 +10,11 @@ class MeshLibrary {
 
     static let shared = MeshLibrary()
 
-    private let meshes: [MeshNames: MTKMesh]
+    private let meshes: [MeshName: MTKMesh]
 
     init() {
         MeshLibrary.logger.trace("Initializing mesh store")
-        var meshes: [MeshNames: MTKMesh] = [:]
+        var meshes: [MeshName: MTKMesh] = [:]
 
         let vertexDescriptor = MTLVertexDescriptor()
 
@@ -31,7 +31,7 @@ class MeshLibrary {
         let meshDescriptor = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
         (meshDescriptor.attributes[0] as! MDLVertexAttribute).name = MDLVertexAttributePosition
 
-        for name in MeshNames.allCases {
+        for name in MeshName.allCases {
             MeshLibrary.logger.trace("Initializing \(name.rawValue)")
             guard let meshURL = Bundle.main.url(forResource: name.rawValue, withExtension: "obj") else {
                 fatalError()
@@ -44,7 +44,8 @@ class MeshLibrary {
             do {
                 meshes[name] = try MTKMesh(mesh: modelIOMesh, device: MetalStore.shared.device)
             } catch {
-                fatalError("couldn't load mesh")
+                MeshLibrary.logger.trace("Couldn't load mesh \(name.rawValue)")
+                fatalError()
             }
             MeshLibrary.logger.trace("Initialization of \(name.rawValue) complete")
         }
@@ -52,13 +53,13 @@ class MeshLibrary {
         MeshLibrary.logger.trace("Initialization complete")
     }
 
-    func getMeshNamed(_ name: MeshNames) -> MTKMesh {
+    func getMeshNamed(_ name: MeshName) -> MTKMesh {
         return meshes[name]!
     }
 }
 
-enum MeshNames: String, CaseIterable {
-    case sphere = "sphere"
-    case star   = "star"
-    case teapot = "teapot"
+enum MeshName: String, CaseIterable {
+    case sphere
+    case star
+    case teapot
 }
