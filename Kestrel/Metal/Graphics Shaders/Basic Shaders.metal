@@ -44,3 +44,42 @@ float4 weighted_mono_fragment(VertexOut vertex_out [[stage_in]]) {
     float3 mono_rgb = float3(brightness);
     return float4(mono_rgb, 1);
 }
+
+[[fragment]]
+float4 weighted_mono_red_only_fragment(VertexOut vertex_out [[stage_in]]) {
+    float r = 0.299 * vertex_out.color.r;
+    float g = 0.587 * vertex_out.color.g;
+    float b = 0.114 * vertex_out.color.b;
+    float brightness = r + g + b;
+    if (vertex_out.color.r > brightness) {
+        return float4(vertex_out.color.r, brightness, brightness, 1);
+    } else {
+        return float4(float3(brightness), 1);
+    }
+}
+
+[[fragment]]
+float4 weighted_mono_green_only_fragment(VertexOut vertex_out [[stage_in]]) {
+    float r = 0.299 * vertex_out.color.r;
+    float g = 0.587 * vertex_out.color.g;
+    float b = 0.114 * vertex_out.color.b;
+    float brightness = r + g + b;
+    if (vertex_out.color.g > brightness) {
+        return float4(brightness, vertex_out.color.g, brightness, 1);
+    } else {
+        return float4(float3(brightness), 1);
+    }
+}
+
+[[fragment]]
+float4 weighted_mono_blue_only_fragment(VertexOut vertex_out [[stage_in]]) {
+    float r = 0.299 * vertex_out.color.r;
+    float g = 0.587 * vertex_out.color.g;
+    float b = 0.114 * vertex_out.color.b;
+    float brightness = r + g + b;
+    if (vertex_out.color.b > brightness) {
+        return float4(brightness, brightness, vertex_out.color.b, 1);
+    } else {
+        return float4(float3(brightness), 1);
+    }
+}

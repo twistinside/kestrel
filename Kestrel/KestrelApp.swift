@@ -29,8 +29,8 @@ struct KestrelApp: App {
         self.shaders = ShaderLibrary.shared
         self.renderPipelineDescriptors = RenderPiplelineDescriptorLibrary.shared
         self.renderPipelineStates = RenderPiplelineStateLibrary.shared
-        self.services = ServiceLocator.shared
         self.game = Kestrel.shared
+        self.services = ServiceLocator.shared
         KestrelApp.logger.trace("Initialization complete")
     }
 

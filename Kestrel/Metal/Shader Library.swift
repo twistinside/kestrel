@@ -37,4 +37,7 @@ enum ShaderName: String, CaseIterable {
     case basicVertex          = "basic_vertex"
     case monoFragment         = "mono_fragment"
     case monoWeightedFragment = "weighted_mono_fragment"
+    case monoRedFragment      = "weighted_mono_red_only_fragment"
+    case monoGreenFragment      = "weighted_mono_green_only_fragment"
+    case monoBlueFragment      = "weighted_mono_blue_only_fragment"
 }

@@ -46,8 +46,8 @@ class KestrelSphere: Entity, Renderable, Transformable {
             self.isShrinking = true
         }
 
-        let bKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyB)?.isPressed ?? false
-        if bKeyIsPressed {
+        let uKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyU)?.isPressed ?? false
+        if uKeyIsPressed {
             KestrelSphere.logger.trace("Setting undefined state")
             self.isGrowing = false
             self.isShrinking = false

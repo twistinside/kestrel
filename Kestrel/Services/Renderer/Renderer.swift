@@ -45,8 +45,6 @@ extension Renderer: MTKViewDelegate {
             fatalError("Could not get render command encoder")
         }
 
-//        renderCommandEncoder.setRenderPipelineState(MetalStore.shared.renderPipelineState)
-
         game.render(renderCommandEncoder: renderCommandEncoder)
 
         renderCommandEncoder.endEncoding()

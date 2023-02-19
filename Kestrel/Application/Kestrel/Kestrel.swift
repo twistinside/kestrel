@@ -25,10 +25,14 @@ class Kestrel: ObservableObject {
     }
 
     func render(renderCommandEncoder: MTLRenderCommandEncoder) {
+        Kestrel.logger.trace("Start entity render")
         for entity in entities {
             if let renderable = entity as? Renderable {
+                Kestrel.logger.trace("Rendering entity")
                 renderable.render(renderCommandEncoder: renderCommandEncoder)
+                Kestrel.logger.trace("Rendering complete")
             }
         }
+        Kestrel.logger.trace("End entity render")
     }
 }

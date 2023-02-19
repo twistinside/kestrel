@@ -49,7 +49,36 @@ class RenderPiplelineDescriptorLibrary {
 
         renderPipelineDescriptors[.monoWeighted] = renderPipelineDescriptor
 
+        renderPipelineDescriptor = MTLRenderPipelineDescriptor()
+
+        renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.vertexFunction = ShaderLibrary.shared.getShaderNamed(.basicVertex)
+        renderPipelineDescriptor.fragmentFunction = ShaderLibrary.shared.getShaderNamed(.monoRedFragment)
+        renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
+
+        renderPipelineDescriptors[.monoRed] = renderPipelineDescriptor
+
+        renderPipelineDescriptor = MTLRenderPipelineDescriptor()
+
+        renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.vertexFunction = ShaderLibrary.shared.getShaderNamed(.basicVertex)
+        renderPipelineDescriptor.fragmentFunction = ShaderLibrary.shared.getShaderNamed(.monoGreenFragment)
+        renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
+
+        renderPipelineDescriptors[.monoGreen] = renderPipelineDescriptor
+
+        renderPipelineDescriptor = MTLRenderPipelineDescriptor()
+
+        renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.vertexFunction = ShaderLibrary.shared.getShaderNamed(.basicVertex)
+        renderPipelineDescriptor.fragmentFunction = ShaderLibrary.shared.getShaderNamed(.monoBlueFragment)
+        renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
+
+        renderPipelineDescriptors[.monoBlue] = renderPipelineDescriptor
+
         self.renderPipelineDescriptors = renderPipelineDescriptors
+
+        // TODO: Validate that all names are present in the library
 
         RenderPiplelineDescriptorLibrary.logger.trace("Initialization complete")
     }
@@ -63,4 +92,7 @@ enum RenderPipelineDescriptorName: CaseIterable {
     case basic
     case mono
     case monoWeighted
+    case monoRed
+    case monoGreen
+    case monoBlue
 }

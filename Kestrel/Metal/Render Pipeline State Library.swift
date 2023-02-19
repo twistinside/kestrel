@@ -45,6 +45,36 @@ class RenderPiplelineStateLibrary {
             fatalError()
         }
 
+        renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoRed)
+        do {
+            let renderPipelineState =
+            try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+            renderPipelineStates[.monoRed] = renderPipelineState
+        } catch {
+            RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")
+            fatalError()
+        }
+
+        renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoGreen)
+        do {
+            let renderPipelineState =
+            try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+            renderPipelineStates[.monoGreen] = renderPipelineState
+        } catch {
+            RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")
+            fatalError()
+        }
+
+        renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoBlue)
+        do {
+            let renderPipelineState =
+            try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+            renderPipelineStates[.monoBlue] = renderPipelineState
+        } catch {
+            RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")
+            fatalError()
+        }
+
         self.renderPipelineStates = renderPipelineStates
         RenderPiplelineStateLibrary.logger.trace("Initialization complete")
     }
@@ -58,4 +88,7 @@ enum RenderPipelineStateName: CaseIterable {
     case basic
     case mono
     case monoWeighted
+    case monoRed
+    case monoGreen
+    case monoBlue
 }

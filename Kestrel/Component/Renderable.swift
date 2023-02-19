@@ -1,3 +1,4 @@
+import GameController
 import MetalKit
 import YuzuKit
 
@@ -18,10 +19,19 @@ extension Renderable {
                 var modelMatrix = YZKModelMatrix.from(position: position, rotation: rotation, scale: scale)
                 let random = Bool.random()
                 var renderPipelineStateName: RenderPipelineStateName
-                if random {
-                    renderPipelineStateName = .basic
+
+                let rKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyR)?.isPressed ?? false
+                let gKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyG)?.isPressed ?? false
+                let bKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyB)?.isPressed ?? false
+
+                if rKeyIsPressed {
+                    renderPipelineStateName = .monoRed
+                } else if gKeyIsPressed {
+                    renderPipelineStateName = .monoGreen
+                } else if bKeyIsPressed {
+                    renderPipelineStateName = .monoBlue
                 } else {
-                    renderPipelineStateName = .mono
+                    renderPipelineStateName = .basic
                 }
                 let renderPipelineState = RenderPiplelineStateLibrary.shared.getRenderPipelineStateNamed(renderPipelineStateName)
                 renderCommandEncoder.setRenderPipelineState(renderPipelineState)
