@@ -78,7 +78,13 @@ class RenderPiplelineDescriptorLibrary {
 
         self.renderPipelineDescriptors = renderPipelineDescriptors
 
-        // TODO: Validate that all names are present in the library
+        // Validate the render pipeline descriptor library is complete
+        for name in RenderPipelineDescriptorName.allCases {
+            guard let _ = renderPipelineDescriptors[name] else {
+                RenderPiplelineDescriptorLibrary.logger.error("Initialization failed, \(name.rawValue) was not present in the library")
+                fatalError()
+            }
+        }
 
         RenderPiplelineDescriptorLibrary.logger.trace("Initialization complete")
     }
@@ -88,7 +94,7 @@ class RenderPiplelineDescriptorLibrary {
     }
 }
 
-enum RenderPipelineDescriptorName: CaseIterable {
+enum RenderPipelineDescriptorName: String, CaseIterable {
     case basic
     case mono
     case monoWeighted

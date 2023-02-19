@@ -76,6 +76,15 @@ class RenderPiplelineStateLibrary {
         }
 
         self.renderPipelineStates = renderPipelineStates
+
+        // Validate the render pipeline state library is complete
+        for name in RenderPipelineStateName.allCases {
+            guard let _ = renderPipelineStates[name] else {
+                RenderPiplelineStateLibrary.logger.error("Initialization failed, \(name.rawValue) was not present in the library")
+                fatalError()
+            }
+        }
+
         RenderPiplelineStateLibrary.logger.trace("Initialization complete")
     }
 
@@ -84,7 +93,7 @@ class RenderPiplelineStateLibrary {
     }
 }
 
-enum RenderPipelineStateName: CaseIterable {
+enum RenderPipelineStateName: String, CaseIterable {
     case basic
     case mono
     case monoWeighted

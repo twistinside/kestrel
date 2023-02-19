@@ -24,6 +24,15 @@ class ShaderLibrary {
         }
 
         self.shaders = shaders
+
+        // Validate the shader library is complete
+        for name in ShaderName.allCases {
+            guard let _ = shaders[name] else {
+                ShaderLibrary.logger.error("Initialization failed, \(name.rawValue) was not present in the library")
+                fatalError()
+            }
+        }
+
         ShaderLibrary.logger.trace("Initialization complete")
     }
 
@@ -38,6 +47,6 @@ enum ShaderName: String, CaseIterable {
     case monoFragment         = "mono_fragment"
     case monoWeightedFragment = "weighted_mono_fragment"
     case monoRedFragment      = "weighted_mono_red_only_fragment"
-    case monoGreenFragment      = "weighted_mono_green_only_fragment"
-    case monoBlueFragment      = "weighted_mono_blue_only_fragment"
+    case monoGreenFragment    = "weighted_mono_green_only_fragment"
+    case monoBlueFragment     = "weighted_mono_blue_only_fragment"
 }

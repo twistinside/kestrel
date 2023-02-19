@@ -24,7 +24,16 @@ class VertexDescriptorLibrary {
         let vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
         var vertexDescriptors: [VertexDescriptorName: MTLVertexDescriptor] = [:]
         vertexDescriptors[.mdlMesh] = vertexDescriptor
+
         self.vertexDescriptors = vertexDescriptors
+
+        // Validate the vertex descriptor library is complete
+        for name in VertexDescriptorName.allCases {
+            guard let _ = vertexDescriptors[name] else {
+                VertexDescriptorLibrary.logger.error("Initialization failed, \(name.rawValue) was not present in the library")
+                fatalError()
+            }
+        }
 
         VertexDescriptorLibrary.logger.trace("Initialization complete")
     }
