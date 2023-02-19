@@ -10,10 +10,12 @@ class ServiceLocator {
 
     static let shared = ServiceLocator()
 
+    private(set) var inputHandler: InputHandler
     private(set) var renderer: Renderer
 
     private init() {
         ServiceLocator.logger.trace("Initializing service locator")
+        self.inputHandler = InputHandler.shared
         self.renderer = Renderer.shared
         ServiceLocator.logger.trace("Initialization complete")
     }

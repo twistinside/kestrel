@@ -39,14 +39,14 @@ class KestrelSphere: Entity, Renderable, Transformable {
         KestrelSphere.logger.trace("Updating Kestrel Sphere")
         self.rotate(by: SIMD3<Float>(deltaTime, deltaTime/2, deltaTime/3))
 
-        let fKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyF)?.isPressed ?? false
+        let fKeyIsPressed = ServiceLocator.shared.inputHandler.keyIsPressed(.keyF)
         if fKeyIsPressed {
             KestrelSphere.logger.trace("Setting undefined state")
             self.isGrowing = true
             self.isShrinking = true
         }
 
-        let uKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyU)?.isPressed ?? false
+        let uKeyIsPressed = ServiceLocator.shared.inputHandler.keyIsPressed(.keyU)
         if uKeyIsPressed {
             KestrelSphere.logger.trace("Setting undefined state")
             self.isGrowing = false
@@ -67,8 +67,7 @@ class KestrelSphere: Entity, Renderable, Transformable {
             self.isShrinking = true
         }
 
-        let spaceBarIsPressed: Bool =
-        GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .spacebar)?.isPressed ?? false
+        let spaceBarIsPressed = ServiceLocator.shared.inputHandler.keyIsPressed(.spacebar)
         if spaceBarIsPressed {
             if isGrowing {
                 KestrelSphere.logger.trace("Grow the sphere")

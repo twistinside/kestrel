@@ -17,12 +17,11 @@ extension Renderable {
         for mesh in meshes {
             for vertexBuffer in mesh.vertexBuffers {
                 var modelMatrix = YZKModelMatrix.from(position: position, rotation: rotation, scale: scale)
-                let random = Bool.random()
                 var renderPipelineStateName: RenderPipelineStateName
 
-                let rKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyR)?.isPressed ?? false
-                let gKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyG)?.isPressed ?? false
-                let bKeyIsPressed: Bool = GCKeyboard.coalesced?.keyboardInput?.button(forKeyCode: .keyB)?.isPressed ?? false
+                let rKeyIsPressed = ServiceLocator.shared.inputHandler.keyIsPressed(.keyR)
+                let gKeyIsPressed = ServiceLocator.shared.inputHandler.keyIsPressed(.keyG)
+                let bKeyIsPressed = ServiceLocator.shared.inputHandler.keyIsPressed(.keyB)
 
                 if rKeyIsPressed {
                     renderPipelineStateName = .monoRed
