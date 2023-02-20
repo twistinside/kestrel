@@ -10,10 +10,18 @@ class Kestrel: ObservableObject {
 
     static let shared = Kestrel()
 
+    let camera: Camera
     var entities: [Entity] = []
 
     private init() {
         Kestrel.logger.trace("Initializing kestrel game object")
+
+        // initialize the camera
+        let camera = StandardCamera()
+        self.camera = camera
+        entities.append(camera)
+
+        // initialize other entities
         entities.append(KestrelSphere())
         Kestrel.logger.trace("Initialization complete")
     }

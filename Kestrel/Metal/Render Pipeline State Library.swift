@@ -38,7 +38,7 @@ class RenderPiplelineStateLibrary {
         renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoWeighted)
         do {
             let renderPipelineState =
-            try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+                try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
             renderPipelineStates[.monoWeighted] = renderPipelineState
         } catch {
             RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")
@@ -48,7 +48,7 @@ class RenderPiplelineStateLibrary {
         renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoRed)
         do {
             let renderPipelineState =
-            try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+                try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
             renderPipelineStates[.monoRed] = renderPipelineState
         } catch {
             RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")
@@ -58,7 +58,7 @@ class RenderPiplelineStateLibrary {
         renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoGreen)
         do {
             let renderPipelineState =
-            try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+                try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
             renderPipelineStates[.monoGreen] = renderPipelineState
         } catch {
             RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")
@@ -68,7 +68,7 @@ class RenderPiplelineStateLibrary {
         renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoBlue)
         do {
             let renderPipelineState =
-            try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
+                try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
             renderPipelineStates[.monoBlue] = renderPipelineState
         } catch {
             RenderPiplelineStateLibrary.logger.critical("Could not create render pipeline state")

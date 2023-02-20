@@ -25,6 +25,7 @@ class RenderPiplelineDescriptorLibrary {
         var renderPipelineDescriptor = MTLRenderPipelineDescriptor()
 
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormat.depth32Float
         renderPipelineDescriptor.vertexFunction = ShaderLibrary.shared.getShaderNamed(.basicVertex)
         renderPipelineDescriptor.fragmentFunction = ShaderLibrary.shared.getShaderNamed(.basicFragment)
         renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
@@ -34,6 +35,7 @@ class RenderPiplelineDescriptorLibrary {
         renderPipelineDescriptor = MTLRenderPipelineDescriptor()
 
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormat.depth32Float
         renderPipelineDescriptor.vertexFunction = ShaderLibrary.shared.getShaderNamed(.basicVertex)
         renderPipelineDescriptor.fragmentFunction = ShaderLibrary.shared.getShaderNamed(.monoFragment)
         renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
@@ -43,6 +45,7 @@ class RenderPiplelineDescriptorLibrary {
         renderPipelineDescriptor = MTLRenderPipelineDescriptor()
 
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormat.depth32Float
         renderPipelineDescriptor.vertexFunction = ShaderLibrary.shared.getShaderNamed(.basicVertex)
         renderPipelineDescriptor.fragmentFunction = ShaderLibrary.shared.getShaderNamed(.monoWeightedFragment)
         renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
@@ -52,6 +55,7 @@ class RenderPiplelineDescriptorLibrary {
         renderPipelineDescriptor = MTLRenderPipelineDescriptor()
 
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormat.depth32Float
         renderPipelineDescriptor.vertexFunction = ShaderLibrary.shared.getShaderNamed(.basicVertex)
         renderPipelineDescriptor.fragmentFunction = ShaderLibrary.shared.getShaderNamed(.monoRedFragment)
         renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
@@ -61,6 +65,7 @@ class RenderPiplelineDescriptorLibrary {
         renderPipelineDescriptor = MTLRenderPipelineDescriptor()
 
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormat.depth32Float
         renderPipelineDescriptor.vertexFunction = ShaderLibrary.shared.getShaderNamed(.basicVertex)
         renderPipelineDescriptor.fragmentFunction = ShaderLibrary.shared.getShaderNamed(.monoGreenFragment)
         renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)
@@ -70,6 +75,7 @@ class RenderPiplelineDescriptorLibrary {
         renderPipelineDescriptor = MTLRenderPipelineDescriptor()
 
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        renderPipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormat.depth32Float
         renderPipelineDescriptor.vertexFunction = ShaderLibrary.shared.getShaderNamed(.basicVertex)
         renderPipelineDescriptor.fragmentFunction = ShaderLibrary.shared.getShaderNamed(.monoBlueFragment)
         renderPipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mtkMesh.vertexDescriptor)

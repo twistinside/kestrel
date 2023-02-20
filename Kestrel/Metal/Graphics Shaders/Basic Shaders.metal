@@ -15,10 +15,10 @@ struct VertexOut {
 };
 
 [[vertex]]
-VertexOut basic_vertex(const    VertexIn          vertex_in   [[stage_in]],
-                       constant matrix_float4x4 & modelMatrix [[buffer(1)]]) {
+VertexOut basic_vertex(const    VertexIn   vertex_in [[stage_in]],
+                       constant Uniforms & uniforms  [[buffer(1)]]) {
     VertexOut vertexOut;
-    vertexOut.position = modelMatrix * vertex_in.position;
+    vertexOut.position = uniforms.projectionMatrix * uniforms.viewMatrix * uniforms.modelMatrix * vertex_in.position;
     vertexOut.color = vertex_in.normal;
     return vertexOut;
 }

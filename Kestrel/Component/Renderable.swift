@@ -16,26 +16,21 @@ extension Renderable {
     func render(renderCommandEncoder: MTLRenderCommandEncoder) {
         for mesh in meshes {
             for vertexBuffer in mesh.vertexBuffers {
-                var modelMatrix = YZKModelMatrix.from(position: position, rotation: rotation, scale: scale)
-                var renderPipelineStateName: RenderPipelineStateName
+                let modelMatrix = YZKModelMatrix.from(position: position, rotation: rotation, scale: scale)
+                let projectionMatrix = Kestrel.shared.camera.projectionMatrix
+                let viewMatrix = Kestrel.shared.camera.viewMatrix
+                var uniforms = Uniforms(modelMatrix: modelMatrix, projectionMatrix: projectionMatrix, viewMatrix: viewMatrix)
 
-                let rKeyIsPressed = ServiceLocator.shared.inputHandler.keyIsPressed(.keyR)
-                let gKeyIsPressed = ServiceLocator.shared.inputHandler.keyIsPressed(.keyG)
-                let bKeyIsPressed = ServiceLocator.shared.inputHandler.keyIsPressed(.keyB)
+                let depthStencilDescriptor = MTLDepthStencilDescriptor()
+                depthStencilDescriptor.isDepthWriteEnabled = true
+                depthStencilDescriptor.depthCompareFunction = .less
+                let depthStencilState = MetalStore.shared.device.makeDepthStencilState(descriptor: depthStencilDescriptor)
+                renderCommandEncoder.setDepthStencilState(depthStencilState)
 
-                if rKeyIsPressed {
-                    renderPipelineStateName = .monoRed
-                } else if gKeyIsPressed {
-                    renderPipelineStateName = .monoGreen
-                } else if bKeyIsPressed {
-                    renderPipelineStateName = .monoBlue
-                } else {
-                    renderPipelineStateName = .basic
-                }
-                let renderPipelineState = RenderPiplelineStateLibrary.shared.getRenderPipelineStateNamed(renderPipelineStateName)
                 renderCommandEncoder.setRenderPipelineState(renderPipelineState)
-                renderCommandEncoder.setVertexBytes(&modelMatrix,
-                                                    length: MemoryLayout<matrix_float4x4>.stride,
+
+                renderCommandEncoder.setVertexBytes(&uniforms,
+                                                    length: MemoryLayout<Uniforms>.stride,
                                                     index: 1)
                 renderCommandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: vertexBuffer.offset, index: 0)
                 for submesh in mesh.submeshes {

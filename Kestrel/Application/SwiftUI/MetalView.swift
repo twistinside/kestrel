@@ -26,6 +26,7 @@ struct MetalViewRepresentable: NSViewRepresentable {
 
     func makeNSView(context: Context) -> some NSView {
         metalView.clearColor = MTLClearColor(red: 0.73, green: 0.23, blue: 0.35, alpha: 1.0)
+        metalView.depthStencilPixelFormat = MTLPixelFormat.depth32Float
         metalView.colorPixelFormat = .bgra8Unorm
         metalView.delegate = ServiceLocator.shared.renderer
         metalView.device = MetalStore.shared.device

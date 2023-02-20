@@ -9,9 +9,9 @@ class Renderer: NSObject {
 
     static let shared = Renderer()
 
-    let commandQueue = MetalStore.shared.commandQueue
-    let device = MetalStore.shared.device
-    let game = Kestrel.shared
+    private let commandQueue = MetalStore.shared.commandQueue
+    private let device = MetalStore.shared.device
+    private let game = Kestrel.shared
 
     private override init() {
         Renderer.logger.trace("Initializing renderer")
@@ -23,14 +23,16 @@ class Renderer: NSObject {
 extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         Renderer.logger.trace("View has been resized, it is now \(size.height) tall and \(size.width) wide")
+        game.camera.aspect = Float(size.width/size.height)
     }
 
     func draw(in view: MTKView) {
+        game.update(deltaTime: 0.01)
+
+        Renderer.logger.trace("Drawing")
         guard let drawable = view.currentDrawable else {
             return
         }
-
-        game.update(deltaTime: 0.01)
 
         guard let commandBuffer = commandQueue.makeCommandBuffer(),
               let renderPassDescriptor = view.currentRenderPassDescriptor else {
@@ -50,5 +52,6 @@ extension Renderer: MTKViewDelegate {
         renderCommandEncoder.endEncoding()
         commandBuffer.present(drawable)
         commandBuffer.commit()
+        Renderer.logger.trace("Drawing complete")
     }
 }
