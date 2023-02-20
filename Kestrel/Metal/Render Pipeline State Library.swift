@@ -15,7 +15,8 @@ class RenderPiplelineStateLibrary {
         RenderPiplelineStateLibrary.logger.trace("Initializing render pipeline state library")
         var renderPipelineStates: [RenderPipelineStateName: MTLRenderPipelineState] = [:]
 
-        var renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.basic)
+        var renderPipelineDescriptor =
+            RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.basic)
         do {
             let renderPipelineState =
                 try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
@@ -25,7 +26,8 @@ class RenderPiplelineStateLibrary {
             fatalError()
         }
 
-        renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.mono)
+        renderPipelineDescriptor =
+            RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.mono)
         do {
             let renderPipelineState =
                 try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
@@ -35,7 +37,8 @@ class RenderPiplelineStateLibrary {
             fatalError()
         }
 
-        renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoWeighted)
+        renderPipelineDescriptor =
+            RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoWeighted)
         do {
             let renderPipelineState =
                 try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
@@ -45,7 +48,8 @@ class RenderPiplelineStateLibrary {
             fatalError()
         }
 
-        renderPipelineDescriptor = RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoRed)
+        renderPipelineDescriptor =
+            RenderPiplelineDescriptorLibrary.shared.getRenderPipelineDescriptorNamed(.monoRed)
         do {
             let renderPipelineState =
                 try MetalStore.shared.device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
@@ -78,11 +82,8 @@ class RenderPiplelineStateLibrary {
         self.renderPipelineStates = renderPipelineStates
 
         // Validate the render pipeline state library is complete
-        for name in RenderPipelineStateName.allCases {
-            guard let _ = renderPipelineStates[name] else {
-                RenderPiplelineStateLibrary.logger.error("Initialization failed, \(name.rawValue) was not present in the library")
-                fatalError()
-            }
+        for name in RenderPipelineStateName.allCases where renderPipelineStates[name] == nil {
+            assertionFailure("Initialization failed, \(name.rawValue) was not present in the library")
         }
 
         RenderPiplelineStateLibrary.logger.trace("Initialization complete")

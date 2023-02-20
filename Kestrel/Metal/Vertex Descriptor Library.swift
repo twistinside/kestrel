@@ -28,11 +28,8 @@ class VertexDescriptorLibrary {
         self.vertexDescriptors = vertexDescriptors
 
         // Validate the vertex descriptor library is complete
-        for name in VertexDescriptorName.allCases {
-            guard let _ = vertexDescriptors[name] else {
-                VertexDescriptorLibrary.logger.error("Initialization failed, \(name.rawValue) was not present in the library")
-                fatalError()
-            }
+        for name in VertexDescriptorName.allCases where vertexDescriptors[name] == nil {
+            assertionFailure("Initialization failed, \(name.rawValue) was not present in the library")
         }
 
         VertexDescriptorLibrary.logger.trace("Initialization complete")

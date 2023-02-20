@@ -19,12 +19,15 @@ extension Renderable {
                 let modelMatrix = YZKModelMatrix.from(position: position, rotation: rotation, scale: scale)
                 let projectionMatrix = Kestrel.shared.camera.projectionMatrix
                 let viewMatrix = Kestrel.shared.camera.viewMatrix
-                var uniforms = Uniforms(modelMatrix: modelMatrix, projectionMatrix: projectionMatrix, viewMatrix: viewMatrix)
+                var uniforms = Uniforms(modelMatrix: modelMatrix,
+                                        projectionMatrix: projectionMatrix,
+                                        viewMatrix: viewMatrix)
 
                 let depthStencilDescriptor = MTLDepthStencilDescriptor()
                 depthStencilDescriptor.isDepthWriteEnabled = true
                 depthStencilDescriptor.depthCompareFunction = .less
-                let depthStencilState = MetalStore.shared.device.makeDepthStencilState(descriptor: depthStencilDescriptor)
+                let depthStencilState =
+                    MetalStore.shared.device.makeDepthStencilState(descriptor: depthStencilDescriptor)
                 renderCommandEncoder.setDepthStencilState(depthStencilState)
 
                 renderCommandEncoder.setRenderPipelineState(renderPipelineState)

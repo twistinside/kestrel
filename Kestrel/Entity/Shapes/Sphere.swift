@@ -20,14 +20,13 @@ class KestrelSphere: Entity, Renderable, Transformable {
     // MARK: init()
     init() {
         KestrelSphere.logger.trace("Initializing Kestrel Sphere")
-        let device = MTLCreateSystemDefaultDevice()!
-        let meshBufferAllocator = MTKMeshBufferAllocator(device: device)
+        let meshBufferAllocator = MTKMeshBufferAllocator(device: MetalStore.shared.device)
         let mdlMesh = MDLMesh(sphereWithExtent: [0.8, 0.8, 0.8],
                               segments: [100, 100],
                               inwardNormals: false,
                               geometryType: .triangles,
                               allocator: meshBufferAllocator)
-        let mtkMesh = try! MTKMesh(mesh: mdlMesh, device: device)
+        let mtkMesh = try! MTKMesh(mesh: mdlMesh, device: MetalStore.shared.device)
         self.meshes = [mtkMesh]
         self.position = SIMD3<Float>(repeating: 0.0)
         self.renderPipelineState = RenderPiplelineStateLibrary.shared.getRenderPipelineStateNamed(.basic)
@@ -100,7 +99,8 @@ class KestrelSphere: Entity, Renderable, Transformable {
             renderPipelineStateName = .basic
         }
 
-        let renderPipelineState = RenderPiplelineStateLibrary.shared.getRenderPipelineStateNamed(renderPipelineStateName)
+        let renderPipelineState =
+            RenderPiplelineStateLibrary.shared.getRenderPipelineStateNamed(renderPipelineStateName)
         self.renderPipelineState = renderPipelineState
 
         KestrelSphere.logger.trace("Update complete")

@@ -85,11 +85,8 @@ class RenderPiplelineDescriptorLibrary {
         self.renderPipelineDescriptors = renderPipelineDescriptors
 
         // Validate the render pipeline descriptor library is complete
-        for name in RenderPipelineDescriptorName.allCases {
-            guard let _ = renderPipelineDescriptors[name] else {
-                RenderPiplelineDescriptorLibrary.logger.error("Initialization failed, \(name.rawValue) was not present in the library")
-                fatalError()
-            }
+        for name in RenderPipelineDescriptorName.allCases where renderPipelineDescriptors[name] == nil {
+                assertionFailure("Initialization failed, \(name.rawValue) was not present in the library")
         }
 
         RenderPiplelineDescriptorLibrary.logger.trace("Initialization complete")

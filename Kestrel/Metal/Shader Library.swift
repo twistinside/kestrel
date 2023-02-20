@@ -26,11 +26,8 @@ class ShaderLibrary {
         self.shaders = shaders
 
         // Validate the shader library is complete
-        for name in ShaderName.allCases {
-            guard let _ = shaders[name] else {
-                ShaderLibrary.logger.error("Initialization failed, \(name.rawValue) was not present in the library")
-                fatalError()
-            }
+        for name in ShaderName.allCases where shaders[name] == nil {
+            assertionFailure("Initialization failed, \(name.rawValue) was not present in the library")
         }
 
         ShaderLibrary.logger.trace("Initialization complete")
